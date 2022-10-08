@@ -1,0 +1,1 @@
+enum TankEntryMode { add, edit }
