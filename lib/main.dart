@@ -1,6 +1,7 @@
 import 'package:aqua_hobby/presentation/screens/dashboard-screen/main-view.dart';
 import 'package:aqua_hobby/presentation/screens/edit-tank-screen/main-view.dart';
 import 'package:aqua_hobby/presentation/state-management/blocs/tank.dart';
+import 'package:aqua_hobby/presentation/utils/create-material-color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Aqua Hobby',
         theme: ThemeData(
-          primarySwatch: Colors.indigo,
+          primarySwatch:  createMaterialColor(const Color(0xFF3D84A8)),//3F72AF, 11999E
         ),
         initialRoute: DashboardScreen.route,
         routes: {
