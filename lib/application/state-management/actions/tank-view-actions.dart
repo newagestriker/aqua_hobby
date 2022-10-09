@@ -1,7 +1,8 @@
-import 'package:aqua_hobby/presentation/state-management/actions/common.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../../domain/tank-setup/models/tank.dart';
+import 'common.dart';
 
 @immutable
 class SetTankAction extends TankAction {

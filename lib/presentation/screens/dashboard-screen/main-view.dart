@@ -4,9 +4,10 @@ import 'package:aqua_hobby/presentation/screens/edit-tank-screen/main-view.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/state-management/blocs/tank.dart';
+import '../../../application/state-management/tank-state.dart';
 import '../../../domain/tank-setup/models/tank.dart';
-import '../../state-management/blocs/tank.dart';
-import '../../state-management/tank-state.dart';
+
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);

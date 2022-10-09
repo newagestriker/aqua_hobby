@@ -5,16 +5,16 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-class ImageChooserService extends ImageChooserServiceBase<Future<File?>> {
+class ImageChooserService extends ImageChooserServiceBase<Future<File?>,ImageSource> {
   final ImagePicker _picker = ImagePicker();
 
-  ImageChooserService(ImageChoosingStrategy strategy) {
-    this.strategy = strategy;
+  ImageChooserService(ImageSource source) {
+    strategy = source;
   }
 
   @override
   Future<File?> getImage() async {
-    final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
+    final XFile? photo = await _picker.pickImage(source: strategy);
     if (photo == null) {
       return Future(() => null);
     }

@@ -1,6 +1,6 @@
 import 'package:aqua_hobby/presentation/screens/dashboard-screen/main-view.dart';
 import 'package:aqua_hobby/presentation/screens/edit-tank-screen/main-view.dart';
-import 'package:aqua_hobby/presentation/state-management/blocs/tank.dart';
+import 'package:aqua_hobby/application/state-management/blocs/tank.dart';
 import 'package:aqua_hobby/presentation/utils/create-material-color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

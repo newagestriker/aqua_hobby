@@ -1,7 +1,6 @@
-abstract class ImageChooserServiceBase<TResult> {
-  late ImageChoosingStrategy strategy;
+abstract class ImageChooserServiceBase<TResult,TStrategy> {
+ late TStrategy strategy;
 
   TResult getImage();
 }
 
-enum ImageChoosingStrategy { camera, gallery }

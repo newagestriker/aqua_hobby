@@ -3,10 +3,11 @@ import 'dart:io';
 import 'package:aqua_hobby/domain/tank-setup/models/tank.dart';
 import 'package:aqua_hobby/presentation/enums.dart';
 import 'package:aqua_hobby/presentation/screens/edit-tank-screen/main-view.dart';
-import 'package:aqua_hobby/presentation/state-management/actions/tank-view-actions.dart';
-import 'package:aqua_hobby/presentation/state-management/blocs/tank.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../application/state-management/actions/tank-view-actions.dart';
+import '../../../application/state-management/blocs/tank.dart';
 
 class TankView extends StatelessWidget {
   const TankView({Key? key, required this.tank, required this.position})

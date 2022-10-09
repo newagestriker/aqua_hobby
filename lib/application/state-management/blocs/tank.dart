@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:aqua_hobby/domain/tank-setup/models/tank.dart';
-import 'package:aqua_hobby/presentation/state-management/actions/tank-view-actions.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../actions/common.dart';
+import '../actions/tank-view-actions.dart';
 import '../tank-state.dart';
 
 class TankBloc extends HydratedBloc<TankAction, TankState> {

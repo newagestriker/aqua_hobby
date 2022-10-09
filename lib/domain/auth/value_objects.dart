@@ -1,8 +1,10 @@
+import 'dart:html';
+
 import 'package:aqua_hobby/domain/core/value_object.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:dartz/dartz.dart';
 
-part 'val.freezed.dart';
+import '../core/failures.dart';
+import '../core/value_validators.dart';
 
 class EmailAddress extends ValueObject<String> {
 
@@ -17,19 +19,21 @@ class EmailAddress extends ValueObject<String> {
     return EmailAddress._(value: validateEmailAddress(input));
   }
 }
+class Password extends ValueObject<String> {
 
-Either<ValueFailure<String>,String> validateEmailAddress(String input) {
-  const emailRegex =
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
-  if (RegExp(emailRegex).hasMatch(input)) {
-    return right(input);
-  } else {
-    return left(ValueFailure.invalidEmail(failedValue: input));
+  @override
+  final Either<ValueFailure<String>,String> value;
+
+  const Password._({
+    required this.value,
+  });
+
+  factory Password(String input) {
+    return Password._(value: validateEmailAddress(input));
   }
 }
 
-@freezed
-abstract class ValueFailure<T> with _$ValueFailure<T>{
-  const factory ValueFailure.invalidEmail({ required String failedValue}) = InvalidEmail<T>;
-}
+
+
+
 

@@ -1,15 +1,14 @@
+import 'dart:developer';
 import 'dart:io';
 
-import 'package:aqua_hobby/application/services/image-chooser-service.dart';
-import 'package:aqua_hobby/domain/shared/contracts/image-chooser-service-base.dart';
 import 'package:aqua_hobby/presentation/enums.dart';
 import 'package:aqua_hobby/presentation/shared/image-selection.dart';
-import 'package:aqua_hobby/presentation/state-management/actions/tank-view-actions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/state-management/actions/tank-view-actions.dart';
+import '../../../application/state-management/blocs/tank.dart';
 import '../../../domain/tank-setup/models/tank.dart';
-import '../../state-management/blocs/tank.dart';
 
 class EditTankScreenArguments {
   final Tank tank;
@@ -29,6 +28,8 @@ class EditTankScreen extends StatefulWidget {
 }
 
 class _EditTankScreenState extends State<EditTankScreen> {
+  String startDate = "Enter Start Date";
+
   @override
   Widget build(BuildContext context) {
     final args =
@@ -36,10 +37,7 @@ class _EditTankScreenState extends State<EditTankScreen> {
     final Tank tank = args.tank;
     final TankEntryMode tankEntryMode = args.tankEntryMode;
     final int? position = args.position;
-    _onPressed() async {
-      File? imageFile =
-          await ImageChooserService(ImageChoosingStrategy.camera).getImage();
-
+    _onPressed(File? imageFile) async {
       setState(() {
         tank.tankPicPath = imageFile?.path ?? "";
       });
@@ -76,7 +74,28 @@ class _EditTankScreenState extends State<EditTankScreen> {
                     onChanged: (value) {
                       tank.setType(value);
                     },
-                    text: tank.type)
+                    text: tank.type),
+                Row(
+                  children: [
+                    Text(startDate),
+                    IconButton(
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(1950),
+                              lastDate: DateTime.now());
+
+                          setState(() {
+                            startDate =
+                                "${pickedDate?.day}/${pickedDate?.month}/${pickedDate?.year}";
+                            log(startDate);
+                          });
+                        },
+                        icon: const Icon(Icons.calendar_month))
+                  ],
+                )
               ],
             ),
           ),
