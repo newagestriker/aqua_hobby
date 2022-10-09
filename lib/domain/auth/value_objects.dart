@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:aqua_hobby/domain/core/value_object.dart';
 import 'package:dartz/dartz.dart';
 
@@ -7,9 +5,8 @@ import '../core/failures.dart';
 import '../core/value_validators.dart';
 
 class EmailAddress extends ValueObject<String> {
-
   @override
-  final Either<ValueFailure<String>,String> value;
+  final Either<ValueFailure<String>, String> value;
 
   const EmailAddress._({
     required this.value,
@@ -19,10 +16,10 @@ class EmailAddress extends ValueObject<String> {
     return EmailAddress._(value: validateEmailAddress(input));
   }
 }
-class Password extends ValueObject<String> {
 
+class Password extends ValueObject<String> {
   @override
-  final Either<ValueFailure<String>,String> value;
+  final Either<ValueFailure<String>, String> value;
 
   const Password._({
     required this.value,
@@ -32,8 +29,3 @@ class Password extends ValueObject<String> {
     return Password._(value: validateEmailAddress(input));
   }
 }
-
-
-
-
-
