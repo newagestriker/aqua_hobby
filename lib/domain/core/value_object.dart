@@ -1,6 +1,7 @@
 import 'package:aqua_hobby/domain/core/errors.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:uuid/uuid.dart';
 
 import 'failures.dart';
 
@@ -27,5 +28,18 @@ abstract class ValueObject<T> {
   @override
   String toString() {
     return 'Value{value: $value,}';
+  }
+}
+
+class UniqueId extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  const UniqueId._(this.value);
+  factory UniqueId() {
+    return UniqueId._(right(const Uuid().v1()));
+  }
+
+  factory UniqueId.fromUniqueString(String uniqueId) {
+    return UniqueId._(right(uniqueId));
   }
 }

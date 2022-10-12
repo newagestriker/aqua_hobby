@@ -1,11 +1,13 @@
 import 'package:aqua_hobby/domain/auth/auth_failure.dart';
 import 'package:aqua_hobby/domain/auth/i_auth_facade.dart';
+import 'package:aqua_hobby/domain/auth/user.dart' as _domain;
 import 'package:dartz/dartz.dart';
 import 'package:aqua_hobby/domain/auth/value_objects.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import './firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
@@ -68,5 +70,13 @@ class FirebaseAuthFacade implements IAuthFacade {
     } on PlatformException catch (_) {
       return left(const AuthFailure.serverError());
     }
+  }
+
+  @override
+  Option<_domain.User> getSignedInUser() =>
+      optionOf(_firebaseAuth.currentUser?.toDomain());
+  @override
+  Future<void> signOut() {
+    return Future.wait([_googleSignIn.signOut(), _firebaseAuth.signOut()]);
   }
 }
