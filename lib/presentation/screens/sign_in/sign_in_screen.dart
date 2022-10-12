@@ -1,0 +1,15 @@
+import 'package:aqua_hobby/presentation/screens/sign_in/widgets/sign_in_form.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({Key? key}) : super(key: key);
+  static const String route = "/signInPage";
+
+  @override
+  Widget build(BuildContext context) {
+    return const SafeArea(
+      child: Scaffold(body: SignInForm()),
+    );
+  }
+}

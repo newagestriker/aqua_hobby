@@ -15,7 +15,7 @@ part 'sign_in_form_bloc.freezed.dart';
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
-    _perFormActionOnAuthFacaseWithEmailAndPassword(
+    _perFormActionOnAuthFacadeWithEmailAndPassword(
         Future<Either<AuthFailure, Unit>> Function(
                 {required EmailAddress emailAddress,
                 required Password password})
@@ -49,10 +49,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             password: Password(e.passwordStr),
             authFailureOrSuccessOption: none()));
       }, registerWithEmailAndPasswordPressed: (e) async {
-        await _perFormActionOnAuthFacaseWithEmailAndPassword(
+        await _perFormActionOnAuthFacadeWithEmailAndPassword(
             _authFacade.signInWithEmailAndPassword, emit);
       }, signInWithEmailAndPasswordPressed: (e) async {
-        await _perFormActionOnAuthFacaseWithEmailAndPassword(
+        await _perFormActionOnAuthFacadeWithEmailAndPassword(
             _authFacade.signInWithEmailAndPassword, emit);
       }, signInWithGooglePressed: (e) async {
         emit(state.copyWith(
