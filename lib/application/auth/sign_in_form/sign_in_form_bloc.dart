@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:aqua_hobby/domain/auth/i_auth_facade.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -15,7 +17,7 @@ part 'sign_in_form_bloc.freezed.dart';
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
-    _perFormActionOnAuthFacadeWithEmailAndPassword(
+    Future<void> _perFormActionOnAuthFacadeWithEmailAndPassword(
         Future<Either<AuthFailure, Unit>> Function(
                 {required EmailAddress emailAddress,
                 required Password password})
@@ -39,8 +41,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           authFailureOrSuccessOption: optionOf(failureOrSuccess)));
     }
 
-    on<SignInFormEvent>((event, emit) {
-      event.map(emailChanged: (e) {
+    on<SignInFormEvent>((event, emit) async {
+      await event.map<FutureOr<void>>(emailChanged: (e) {
         emit(state.copyWith(
             emailAddress: EmailAddress(e.emailStr),
             authFailureOrSuccessOption: none()));
@@ -50,7 +52,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             authFailureOrSuccessOption: none()));
       }, registerWithEmailAndPasswordPressed: (e) async {
         await _perFormActionOnAuthFacadeWithEmailAndPassword(
-            _authFacade.signInWithEmailAndPassword, emit);
+            _authFacade.registerWithEmailAndPassword, emit);
       }, signInWithEmailAndPasswordPressed: (e) async {
         await _perFormActionOnAuthFacadeWithEmailAndPassword(
             _authFacade.signInWithEmailAndPassword, emit);

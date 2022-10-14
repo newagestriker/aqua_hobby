@@ -9,7 +9,11 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-      child: Scaffold(body: SignInForm()),
+      child: Scaffold(
+          body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: SignInForm(),
+      )),
     );
   }
 }

@@ -1,8 +1,10 @@
+import 'package:aqua_hobby/application/auth/auth_bloc.dart';
 import 'package:aqua_hobby/injection.dart';
 import 'package:aqua_hobby/presentation/screens/dashboard-screen/main-view.dart';
 import 'package:aqua_hobby/presentation/screens/edit-tank-screen/main-view.dart';
 import 'package:aqua_hobby/application/state-management/blocs/tank.dart';
 import 'package:aqua_hobby/presentation/screens/sign_in/sign_in_screen.dart';
+import 'package:aqua_hobby/presentation/screens/splash/splash.dart';
 import 'package:aqua_hobby/presentation/utils/create-material-color.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +38,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => TankBloc()),
-        BlocProvider(create: (_) => getIt<SignInFormBloc>())
+        BlocProvider(create: (_) => getIt<SignInFormBloc>()),
+        BlocProvider(
+            create: (_) =>
+                getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()))
       ],
       child: MaterialApp(
         title: 'Aqua Hobby',
@@ -49,8 +54,9 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        initialRoute: SignInScreen.route,
+        initialRoute: SplashScreen.route,
         routes: {
+          SplashScreen.route: ((context) => const SplashScreen()),
           DashboardScreen.route: (context) => const DashboardScreen(),
           EditTankScreen.route: (context) => const EditTankScreen(),
           SignInScreen.route: (context) => const SignInScreen()
