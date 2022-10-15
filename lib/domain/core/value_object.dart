@@ -1,11 +1,9 @@
 import 'package:aqua_hobby/domain/core/errors.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:uuid/uuid.dart';
 
 import 'failures.dart';
 
-@immutable
 abstract class ValueObject<T> {
   const ValueObject();
   Either<ValueFailure<T>, T> get value;

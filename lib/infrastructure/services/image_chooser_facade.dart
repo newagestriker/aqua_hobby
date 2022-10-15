@@ -1,14 +1,20 @@
 import 'dart:io';
 
-import 'package:aqua_hobby/domain/shared/contracts/image-chooser-service-base.dart';
+import 'package:aqua_hobby/domain/image_chooser/i_image_chooser_facade.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:injectable/injectable.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-class ImageChooserService extends ImageChooserServiceBase<Future<File?>,ImageSource> {
+@injectable
+class ImageChooserFacade
+    extends IImageChooserFacade<Future<File?>, ImageSource> {
   final ImagePicker _picker = ImagePicker();
 
-  ImageChooserService(ImageSource source) {
+  ImageChooserFacade._();
+
+  @override
+  setStrategy(ImageSource source) {
     strategy = source;
   }
 

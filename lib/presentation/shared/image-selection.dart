@@ -1,15 +1,18 @@
 import 'dart:io';
 
+import 'package:aqua_hobby/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../application/services/image-chooser-service.dart';
+import '../../domain/image_chooser/i_image_chooser_facade.dart';
+import '../../infrastructure/services/image_chooser_facade.dart';
 
 class ImageSelection extends StatelessWidget {
   ImageSelection({Key? key, this.imageFilePath, this.onPressed})
       : super(key: key);
   final String? imageFilePath;
   Function(File?)? onPressed = (imageFile) {};
+  final _imageChooserFacade = getIt<IImageChooserFacade>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +31,10 @@ class ImageSelection extends StatelessWidget {
                       style:
                           TextStyle(color: Theme.of(context).primaryColorDark),
                     ),
-                    onTap: () async{
-                      Navigator.pop(context,"Camera");
-                      File? imageFile =
-                          await ImageChooserService(ImageSource.camera).getImage();
+                    onTap: () async {
+                      Navigator.pop(context, "Camera");
+                      _imageChooserFacade.setStrategy(ImageSource.camera);
+                      File? imageFile = await _imageChooserFacade.getImage();
                       onPressed!(imageFile);
                     },
                   ),
@@ -45,10 +48,10 @@ class ImageSelection extends StatelessWidget {
                       style:
                           TextStyle(color: Theme.of(context).primaryColorDark),
                     ),
-                    onTap: () async{
-                      Navigator.pop(context,"Gallery");
-                      File? imageFile =
-                          await ImageChooserService(ImageSource.gallery).getImage();
+                    onTap: () async {
+                      Navigator.pop(context, "Gallery");
+                      _imageChooserFacade.setStrategy(ImageSource.gallery);
+                      File? imageFile = await _imageChooserFacade.getImage();
                       onPressed!(imageFile);
                     },
                   )

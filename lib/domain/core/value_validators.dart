@@ -19,3 +19,13 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
     return left(ValueFailure.shortPassword(failedValue: input));
   }
 }
+
+Either<ValueFailure<String>, String> validateImageChoosingStrategy(
+    String? value) {
+  if (value != null) {
+    return right(value);
+  } else {
+    return left(
+        const ValueFailure.imageChoosingStrategyNotProvided(failedValue: ""));
+  }
+}

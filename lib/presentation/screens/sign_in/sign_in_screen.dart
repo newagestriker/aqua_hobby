@@ -1,5 +1,4 @@
 import 'package:aqua_hobby/presentation/screens/sign_in/widgets/sign_in_form.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -10,10 +9,11 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
-          body: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: SignInForm(),
-      )),
+        body: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: SignInForm(),
+        ),
+      ),
     );
   }
 }
