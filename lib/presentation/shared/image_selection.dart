@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../domain/image_chooser/i_image_chooser_facade.dart';
-import '../../infrastructure/services/image_chooser_facade.dart';
 
 class ImageSelection extends StatelessWidget {
-  ImageSelection({Key? key, this.imageFilePath, this.onPressed})
+  ImageSelection({Key? key, this.imageFilePath, required this.onPressed})
       : super(key: key);
   final String? imageFilePath;
-  Function(File?)? onPressed = (imageFile) {};
-  final _imageChooserFacade = getIt<IImageChooserFacade>();
+  final void Function(File?) onPressed;
+  final _imageChooserFacade =
+      getIt<IImageChooserFacade<Future<File?>, ImageSource>>();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class ImageSelection extends StatelessWidget {
                       Navigator.pop(context, "Camera");
                       _imageChooserFacade.setStrategy(ImageSource.camera);
                       File? imageFile = await _imageChooserFacade.getImage();
-                      onPressed!(imageFile);
+                      onPressed(imageFile);
                     },
                   ),
                   ListTile(
@@ -52,7 +52,7 @@ class ImageSelection extends StatelessWidget {
                       Navigator.pop(context, "Gallery");
                       _imageChooserFacade.setStrategy(ImageSource.gallery);
                       File? imageFile = await _imageChooserFacade.getImage();
-                      onPressed!(imageFile);
+                      onPressed(imageFile);
                     },
                   )
                 ],
@@ -60,20 +60,39 @@ class ImageSelection extends StatelessWidget {
     }
 
     return Container(
-      height: 200.0,
+      height: 280.0,
       decoration: BoxDecoration(
-        border: Border.all(color: Theme.of(context).primaryColorDark),
-      ),
+          border: Border.all(color: Theme.of(context).primaryColorDark),
+          color: Theme.of(context).primaryColorLight),
       width: MediaQuery.of(context).size.width,
       child: imageFilePath?.isEmpty ?? false
           ? Center(
               child: ElevatedButton(
                   onPressed: _onPressed, child: const Text("Select an image")),
             )
-          : FittedBox(
-              fit: BoxFit.fitHeight,
-              clipBehavior: Clip.antiAlias,
-              child: Image.file(File(imageFilePath!))),
+          : Stack(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Center(
+                    child: Image.file(
+                      File(imageFilePath!),
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    onPressed: _onPressed,
+                    icon: Icon(
+                      Icons.edit,
+                      color: Theme.of(context).primaryColorDark,
+                    ),
+                  ),
+                )
+              ],
+            ),
     );
   }
 }

@@ -10,4 +10,5 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
       ShortPassword<T>;
   const factory ValueFailure.imageChoosingStrategyNotProvided(
       {required String failedValue}) = ImageChoosingStrategyNotProvided<T>;
+  const factory ValueFailure.tankNameCannotBeEmpty() = TankNameCannotBeEmpty<T>;
 }

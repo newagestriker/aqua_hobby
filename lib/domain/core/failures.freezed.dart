@@ -16,13 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ValueFailure<T> {
-  String get failedValue => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue) invalidEmail,
     required TResult Function(String failedValue) shortPassword,
     required TResult Function(String failedValue)
         imageChoosingStrategyNotProvided,
+    required TResult Function() tankNameCannotBeEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +30,7 @@ mixin _$ValueFailure<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? shortPassword,
     TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,6 +38,7 @@ mixin _$ValueFailure<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? shortPassword,
     TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,6 +48,8 @@ mixin _$ValueFailure<T> {
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ImageChoosingStrategyNotProvided<T> value)
         imageChoosingStrategyNotProvided,
+    required TResult Function(TankNameCannotBeEmpty<T> value)
+        tankNameCannotBeEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +58,7 @@ mixin _$ValueFailure<T> {
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ImageChoosingStrategyNotProvided<T> value)?
         imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,12 +67,9 @@ mixin _$ValueFailure<T> {
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ImageChoosingStrategyNotProvided<T> value)?
         imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -76,7 +78,6 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res>;
-  $Res call({String failedValue});
 }
 
 /// @nodoc
@@ -87,27 +88,13 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   final ValueFailure<T> _value;
   // ignore: unused_field
   final $Res Function(ValueFailure<T>) _then;
-
-  @override
-  $Res call({
-    Object? failedValue = freezed,
-  }) {
-    return _then(_value.copyWith(
-      failedValue: failedValue == freezed
-          ? _value.failedValue
-          : failedValue // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$InvalidEmailCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$InvalidEmailCopyWith<T, $Res> {
   factory _$$InvalidEmailCopyWith(
           _$InvalidEmail<T> value, $Res Function(_$InvalidEmail<T>) then) =
       __$$InvalidEmailCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -173,6 +160,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(String failedValue) shortPassword,
     required TResult Function(String failedValue)
         imageChoosingStrategyNotProvided,
+    required TResult Function() tankNameCannotBeEmpty,
   }) {
     return invalidEmail(failedValue);
   }
@@ -183,6 +171,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? shortPassword,
     TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -193,6 +182,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? shortPassword,
     TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -208,6 +198,8 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ImageChoosingStrategyNotProvided<T> value)
         imageChoosingStrategyNotProvided,
+    required TResult Function(TankNameCannotBeEmpty<T> value)
+        tankNameCannotBeEmpty,
   }) {
     return invalidEmail(this);
   }
@@ -219,6 +211,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ImageChoosingStrategyNotProvided<T> value)?
         imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
   }) {
     return invalidEmail?.call(this);
   }
@@ -230,6 +223,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ImageChoosingStrategyNotProvided<T> value)?
         imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -243,21 +237,17 @@ abstract class InvalidEmail<T> implements ValueFailure<T> {
   const factory InvalidEmail({required final String failedValue}) =
       _$InvalidEmail<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   _$$InvalidEmailCopyWith<T, _$InvalidEmail<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ShortPasswordCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$ShortPasswordCopyWith<T, $Res> {
   factory _$$ShortPasswordCopyWith(
           _$ShortPassword<T> value, $Res Function(_$ShortPassword<T>) then) =
       __$$ShortPasswordCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -323,6 +313,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(String failedValue) shortPassword,
     required TResult Function(String failedValue)
         imageChoosingStrategyNotProvided,
+    required TResult Function() tankNameCannotBeEmpty,
   }) {
     return shortPassword(failedValue);
   }
@@ -333,6 +324,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? shortPassword,
     TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -343,6 +335,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? shortPassword,
     TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -358,6 +351,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ImageChoosingStrategyNotProvided<T> value)
         imageChoosingStrategyNotProvided,
+    required TResult Function(TankNameCannotBeEmpty<T> value)
+        tankNameCannotBeEmpty,
   }) {
     return shortPassword(this);
   }
@@ -369,6 +364,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ImageChoosingStrategyNotProvided<T> value)?
         imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
   }) {
     return shortPassword?.call(this);
   }
@@ -380,6 +376,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ImageChoosingStrategyNotProvided<T> value)?
         imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -393,22 +390,18 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
   const factory ShortPassword({required final String failedValue}) =
       _$ShortPassword<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   _$$ShortPasswordCopyWith<T, _$ShortPassword<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ImageChoosingStrategyNotProvidedCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$ImageChoosingStrategyNotProvidedCopyWith<T, $Res> {
   factory _$$ImageChoosingStrategyNotProvidedCopyWith(
           _$ImageChoosingStrategyNotProvided<T> value,
           $Res Function(_$ImageChoosingStrategyNotProvided<T>) then) =
       __$$ImageChoosingStrategyNotProvidedCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -479,6 +472,7 @@ class _$ImageChoosingStrategyNotProvided<T>
     required TResult Function(String failedValue) shortPassword,
     required TResult Function(String failedValue)
         imageChoosingStrategyNotProvided,
+    required TResult Function() tankNameCannotBeEmpty,
   }) {
     return imageChoosingStrategyNotProvided(failedValue);
   }
@@ -489,6 +483,7 @@ class _$ImageChoosingStrategyNotProvided<T>
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? shortPassword,
     TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
   }) {
     return imageChoosingStrategyNotProvided?.call(failedValue);
   }
@@ -499,6 +494,7 @@ class _$ImageChoosingStrategyNotProvided<T>
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? shortPassword,
     TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
     required TResult orElse(),
   }) {
     if (imageChoosingStrategyNotProvided != null) {
@@ -514,6 +510,8 @@ class _$ImageChoosingStrategyNotProvided<T>
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ImageChoosingStrategyNotProvided<T> value)
         imageChoosingStrategyNotProvided,
+    required TResult Function(TankNameCannotBeEmpty<T> value)
+        tankNameCannotBeEmpty,
   }) {
     return imageChoosingStrategyNotProvided(this);
   }
@@ -525,6 +523,7 @@ class _$ImageChoosingStrategyNotProvided<T>
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ImageChoosingStrategyNotProvided<T> value)?
         imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
   }) {
     return imageChoosingStrategyNotProvided?.call(this);
   }
@@ -536,6 +535,7 @@ class _$ImageChoosingStrategyNotProvided<T>
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ImageChoosingStrategyNotProvided<T> value)?
         imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
     required TResult orElse(),
   }) {
     if (imageChoosingStrategyNotProvided != null) {
@@ -550,11 +550,133 @@ abstract class ImageChoosingStrategyNotProvided<T> implements ValueFailure<T> {
           {required final String failedValue}) =
       _$ImageChoosingStrategyNotProvided<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   _$$ImageChoosingStrategyNotProvidedCopyWith<T,
           _$ImageChoosingStrategyNotProvided<T>>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TankNameCannotBeEmptyCopyWith<T, $Res> {
+  factory _$$TankNameCannotBeEmptyCopyWith(_$TankNameCannotBeEmpty<T> value,
+          $Res Function(_$TankNameCannotBeEmpty<T>) then) =
+      __$$TankNameCannotBeEmptyCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$TankNameCannotBeEmptyCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$$TankNameCannotBeEmptyCopyWith<T, $Res> {
+  __$$TankNameCannotBeEmptyCopyWithImpl(_$TankNameCannotBeEmpty<T> _value,
+      $Res Function(_$TankNameCannotBeEmpty<T>) _then)
+      : super(_value, (v) => _then(v as _$TankNameCannotBeEmpty<T>));
+
+  @override
+  _$TankNameCannotBeEmpty<T> get _value =>
+      super._value as _$TankNameCannotBeEmpty<T>;
+}
+
+/// @nodoc
+
+class _$TankNameCannotBeEmpty<T> implements TankNameCannotBeEmpty<T> {
+  const _$TankNameCannotBeEmpty();
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.tankNameCannotBeEmpty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TankNameCannotBeEmpty<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) shortPassword,
+    required TResult Function(String failedValue)
+        imageChoosingStrategyNotProvided,
+    required TResult Function() tankNameCannotBeEmpty,
+  }) {
+    return tankNameCannotBeEmpty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? shortPassword,
+    TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
+  }) {
+    return tankNameCannotBeEmpty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? shortPassword,
+    TResult Function(String failedValue)? imageChoosingStrategyNotProvided,
+    TResult Function()? tankNameCannotBeEmpty,
+    required TResult orElse(),
+  }) {
+    if (tankNameCannotBeEmpty != null) {
+      return tankNameCannotBeEmpty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ImageChoosingStrategyNotProvided<T> value)
+        imageChoosingStrategyNotProvided,
+    required TResult Function(TankNameCannotBeEmpty<T> value)
+        tankNameCannotBeEmpty,
+  }) {
+    return tankNameCannotBeEmpty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ImageChoosingStrategyNotProvided<T> value)?
+        imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
+  }) {
+    return tankNameCannotBeEmpty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ImageChoosingStrategyNotProvided<T> value)?
+        imageChoosingStrategyNotProvided,
+    TResult Function(TankNameCannotBeEmpty<T> value)? tankNameCannotBeEmpty,
+    required TResult orElse(),
+  }) {
+    if (tankNameCannotBeEmpty != null) {
+      return tankNameCannotBeEmpty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TankNameCannotBeEmpty<T> implements ValueFailure<T> {
+  const factory TankNameCannotBeEmpty() = _$TankNameCannotBeEmpty<T>;
 }

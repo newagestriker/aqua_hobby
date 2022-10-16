@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:aqua_hobby/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:aqua_hobby/presentation/screens/dashboard-screen/main-view.dart';
+import 'package:aqua_hobby/presentation/screens/dashboard_screen/main_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

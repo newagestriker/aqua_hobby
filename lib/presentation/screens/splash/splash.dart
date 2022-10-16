@@ -1,5 +1,5 @@
 import 'package:aqua_hobby/application/auth/auth_bloc.dart';
-import 'package:aqua_hobby/presentation/screens/dashboard-screen/main-view.dart';
+import 'package:aqua_hobby/presentation/screens/dashboard_screen/main_view.dart';
 import 'package:aqua_hobby/presentation/screens/sign_in/sign_in_screen.dart';
 
 import 'package:flutter/material.dart';

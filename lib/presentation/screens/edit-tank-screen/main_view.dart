@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:aqua_hobby/presentation/enums.dart';
-import 'package:aqua_hobby/presentation/shared/image-selection.dart';
+import 'package:aqua_hobby/presentation/shared/image_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,7 +39,7 @@ class _EditTankScreenState extends State<EditTankScreen> {
     final int? position = args.position;
     _onPressed(File? imageFile) async {
       setState(() {
-        tank.tankPicPath = imageFile?.path ?? "";
+        tank.tankPicPath = imageFile?.path ?? tank.tankPicPath;
       });
     }
 

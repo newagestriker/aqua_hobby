@@ -1,3 +1,4 @@
+import 'package:aqua_hobby/application/tank-setup/tank_setup_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,8 +6,8 @@ import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../application/state-management/blocs/tank.dart';
 import '../../injection.dart';
-import '../screens/dashboard-screen/main-view.dart';
-import '../screens/edit-tank-screen/main-view.dart';
+import '../screens/dashboard_screen/main_view.dart';
+import '../screens/edit-tank-screen/main_view.dart';
 import '../screens/sign_in/sign_in_screen.dart';
 import '../screens/splash/splash.dart';
 import '../utils/create-material-color.dart';
@@ -20,6 +21,7 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => TankBloc()),
+        BlocProvider(create: (_) => TankSetupBloc()),
         BlocProvider(create: (_) => getIt<SignInFormBloc>()),
         BlocProvider(
             create: (_) =>

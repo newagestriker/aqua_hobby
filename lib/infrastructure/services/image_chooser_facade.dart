@@ -6,16 +6,14 @@ import 'package:injectable/injectable.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-@injectable
+@LazySingleton(as: IImageChooserFacade)
 class ImageChooserFacade
-    extends IImageChooserFacade<Future<File?>, ImageSource> {
+    implements IImageChooserFacade<Future<File?>, ImageSource> {
   final ImagePicker _picker = ImagePicker();
 
-  ImageChooserFacade._();
-
   @override
-  setStrategy(ImageSource source) {
-    strategy = source;
+  setStrategy(ImageSource strategy) {
+    this.strategy = strategy;
   }
 
   @override
@@ -33,4 +31,7 @@ class ImageChooserFacade
     tmpFile = await tmpFile.copy('$path/$fileName$fileExtension');
     return tmpFile;
   }
+
+  @override
+  late ImageSource strategy;
 }

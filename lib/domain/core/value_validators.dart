@@ -29,3 +29,11 @@ Either<ValueFailure<String>, String> validateImageChoosingStrategy(
         const ValueFailure.imageChoosingStrategyNotProvided(failedValue: ""));
   }
 }
+
+Either<ValueFailure<String>, String> validateTankName(String input) {
+  if (input.isEmpty) {
+    return left(const ValueFailure.tankNameCannotBeEmpty());
+  } else {
+    return right(input);
+  }
+}
