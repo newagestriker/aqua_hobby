@@ -20,11 +20,18 @@ class DashboardScreen extends StatelessWidget {
       child: Scaffold(
         body: BlocConsumer<TankSetupBloc, TankSetupState>(
           listener: (context, state) {
-            if (state.tankEntryMode == TankEntryMode.add) {
-              Navigator.pushNamed(context, EditTankScreen.route,
-                  arguments: EditTankScreenArguments(
-                      tank: Tank(), tankEntryMode: TankEntryMode.add));
-            }
+            state.tankEntryMode == TankEntryMode.add
+                ? Navigator.pushNamed(context, EditTankScreen.route,
+                    arguments: EditTankScreenArguments(
+                        tank: Tank(), tankEntryMode: TankEntryMode.add))
+                : Navigator.pushNamed(
+                    context,
+                    EditTankScreen.route,
+                    arguments: EditTankScreenArguments(
+                        tank: state.tank,
+                        tankEntryMode: TankEntryMode.edit,
+                        position: state.position),
+                  );
           },
           builder: (context, state) {
             return SingleChildScrollView(

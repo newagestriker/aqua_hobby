@@ -3,7 +3,7 @@ part of 'tank_setup_bloc.dart';
 @freezed
 class TankSetupEvent with _$TankSetupEvent {
   const factory TankSetupEvent.create() = Create;
-  const factory TankSetupEvent.edit() = Edit;
+  const factory TankSetupEvent.edit({required int position}) = Edit;
   const factory TankSetupEvent.tankNameChanged(String input) = TankNameChanged;
   const factory TankSetupEvent.tankTypeChanged(String input) = TankTypeChanged;
   const factory TankSetupEvent.tankPriceChanged(String input) =
