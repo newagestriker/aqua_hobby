@@ -1,8 +1,6 @@
 import 'dart:io';
 
-import 'package:aqua_hobby/domain/tank-setup/models/tank.dart';
-import 'package:aqua_hobby/presentation/enums.dart';
-import 'package:aqua_hobby/presentation/screens/edit-tank-screen/main_view.dart';
+import 'package:aqua_hobby/domain/tank/models/tank.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

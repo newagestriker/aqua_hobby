@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/state-management/blocs/tank.dart';
 import '../../../application/state-management/tank-state.dart';
 import '../../../application/tank-setup/tank_setup_bloc.dart';
-import '../../../domain/tank-setup/models/tank.dart';
+import '../../../domain/tank/models/tank.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);

@@ -7,6 +7,7 @@ part of 'tank.dart';
 // **************************************************************************
 
 Tank _$TankFromJson(Map<String, dynamic> json) => Tank()
+  ..id = UniqueId.fromJson(json['id'] as Map<String, dynamic>)
   ..name = json['name'] as String
   ..type = json['type'] as String
   ..price = json['price'] as String
@@ -20,6 +21,7 @@ Tank _$TankFromJson(Map<String, dynamic> json) => Tank()
   ..tankPicPath = json['tankPicPath'] as String;
 
 Map<String, dynamic> _$TankToJson(Tank instance) => <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'type': instance.type,
       'price': instance.price,

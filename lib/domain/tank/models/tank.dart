@@ -1,11 +1,12 @@
-import 'package:aqua_hobby/domain/tank-setup/consts/co2.dart';
-import 'package:aqua_hobby/domain/tank-setup/consts/tank_status.dart';
-import 'package:aqua_hobby/domain/tank-setup/consts/tank_type.dart';
+import 'package:aqua_hobby/domain/core/value_object.dart';
+import 'package:aqua_hobby/domain/tank/consts/co2.dart';
+import 'package:aqua_hobby/domain/tank/consts/tank_status.dart';
+import 'package:aqua_hobby/domain/tank/consts/tank_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'tank.g.dart';
 
-@JsonSerializable()
+@JsonSerializable() //TODO: Remove after stardardization
 class Tank {
   static Tank builder(String name) {
     Tank tank = Tank();
@@ -15,6 +16,7 @@ class Tank {
 
   Tank();
 
+  UniqueId id = UniqueId();
   String name = "";
   String type = TankType.freshwater;
   String price = "";
@@ -33,6 +35,11 @@ class Tank {
 }
 
 extension TankBuilder on Tank {
+  Tank setId(String id) {
+    this.id = UniqueId.fromUniqueString(id);
+    return this;
+  }
+
   Tank setName(String name) {
     this.name = name;
     return this;

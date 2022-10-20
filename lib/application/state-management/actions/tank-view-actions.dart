@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-import '../../../domain/tank-setup/models/tank.dart';
+import '../../../domain/tank/models/tank.dart';
 import 'common.dart';
 
 @immutable
@@ -25,4 +24,3 @@ class DeleteTankAction extends TankAction {
 
   const DeleteTankAction({required this.position}) : super();
 }
-

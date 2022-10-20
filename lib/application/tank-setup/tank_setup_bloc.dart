@@ -2,7 +2,7 @@ import 'package:aqua_hobby/presentation/enums.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../domain/tank-setup/models/tank.dart';
+import '../../domain/tank/models/tank.dart';
 
 part 'tank_setup_event.dart';
 part 'tank_setup_state.dart';

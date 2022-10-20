@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../domain/tank-setup/models/tank.dart';
+import '../../domain/tank/models/tank.dart';
 
 part 'tank-state.g.dart';
 

@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:aqua_hobby/domain/tank-setup/models/tank.dart';
+import 'package:aqua_hobby/domain/tank/models/tank.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../actions/common.dart';

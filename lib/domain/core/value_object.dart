@@ -1,8 +1,11 @@
 import 'package:aqua_hobby/domain/core/errors.dart';
 import 'package:dartz/dartz.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import 'failures.dart';
+
+part 'value_object.g.dart';
 
 abstract class ValueObject<T> {
   const ValueObject();
@@ -29,6 +32,7 @@ abstract class ValueObject<T> {
   }
 }
 
+@JsonSerializable() //TODO: Remove after stardardization
 class UniqueId extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -40,4 +44,8 @@ class UniqueId extends ValueObject<String> {
   factory UniqueId.fromUniqueString(String uniqueId) {
     return UniqueId._(right(uniqueId));
   }
+  factory UniqueId.fromJson(Map<String, dynamic> json) =>
+      _$UniqueIdFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UniqueIdToJson(this);
 }
