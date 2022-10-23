@@ -1,22 +1,23 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:aqua_hobby/application/tank-setup/tank_setup_bloc.dart';
+
 import 'package:aqua_hobby/presentation/enums.dart';
 import 'package:aqua_hobby/presentation/shared/image_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/state-management/actions/tank-view-actions.dart';
-import '../../../application/state-management/blocs/tank.dart';
 import '../../../domain/tank/models/tank.dart';
 
 class EditTankScreenArguments {
   final Tank tank;
   final TankEntryMode tankEntryMode;
-  final int? position;
 
-  EditTankScreenArguments(
-      {required this.tank, required this.tankEntryMode, this.position});
+  EditTankScreenArguments({
+    required this.tank,
+    required this.tankEntryMode,
+  });
 }
 
 class EditTankScreen extends StatefulWidget {
@@ -28,7 +29,9 @@ class EditTankScreen extends StatefulWidget {
 }
 
 class _EditTankScreenState extends State<EditTankScreen> {
-  String startDate = "Enter Start Date";
+  String _startDate = "Enter Start Date";
+
+  _EditTankScreenState();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,7 @@ class _EditTankScreenState extends State<EditTankScreen> {
         ModalRoute.of(context)!.settings.arguments as EditTankScreenArguments;
     final Tank tank = args.tank;
     final TankEntryMode tankEntryMode = args.tankEntryMode;
-    final int? position = args.position;
+
     _onPressed(File? imageFile) async {
       setState(() {
         tank.tankPicPath = imageFile?.path ?? tank.tankPicPath;
@@ -47,9 +50,9 @@ class _EditTankScreenState extends State<EditTankScreen> {
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            context.read<TankBloc>().add(tankEntryMode == TankEntryMode.add
-                ? AddTankAction(tank: tank)
-                : SetTankAction(tank: tank, position: position ?? -1));
+            context
+                .read<TankSetupBloc>()
+                .add(TankSaved(tank: tank, tankEntryMode: tankEntryMode));
             Navigator.pop(context);
           },
           child: const Icon(Icons.save),
@@ -77,7 +80,7 @@ class _EditTankScreenState extends State<EditTankScreen> {
                     text: tank.type),
                 Row(
                   children: [
-                    Text(startDate),
+                    Text(_startDate),
                     IconButton(
                         color: Theme.of(context).primaryColor,
                         onPressed: () async {
@@ -88,9 +91,9 @@ class _EditTankScreenState extends State<EditTankScreen> {
                               lastDate: DateTime.now());
 
                           setState(() {
-                            startDate =
+                            _startDate =
                                 "${pickedDate?.day}/${pickedDate?.month}/${pickedDate?.year}";
-                            log(startDate);
+                            log(_startDate);
                           });
                         },
                         icon: const Icon(Icons.calendar_month))

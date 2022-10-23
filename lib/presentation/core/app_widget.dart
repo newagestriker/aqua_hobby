@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/sign_in_form/sign_in_form_bloc.dart';
-import '../../application/state-management/blocs/tank.dart';
+
 import '../../injection.dart';
 import '../screens/dashboard_screen/main_view.dart';
 import '../screens/edit-tank-screen/main_view.dart';
@@ -20,7 +20,6 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => TankBloc()),
         BlocProvider(create: (_) => TankSetupBloc()),
         BlocProvider(create: (_) => getIt<SignInFormBloc>()),
         BlocProvider(

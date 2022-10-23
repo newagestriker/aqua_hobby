@@ -11,8 +11,8 @@ import 'package:kt_dart/collection.dart';
 @LazySingleton(as: ITankRepository)
 class TankRepository implements ITankRepository {
   late final Box tanks;
-
-  Future<void> initHive() async {
+  @override
+  Future<void> init() async {
     tanks = await Hive.openBox('TankBox');
   }
 
@@ -51,13 +51,20 @@ class TankRepository implements ITankRepository {
 
   @override
   Either<TankFailure, Tank> getById(UniqueId id) {
-    // TODO: implement getById
-    throw UnimplementedError();
+    try {
+      return right(tanks.get(id));
+    } catch (_) {
+      return left(const TankFailure.unExpected());
+    }
   }
 
   @override
   Either<TankFailure, Unit> update(Tank tank) {
-    // TODO: implement update
-    throw UnimplementedError();
+    try {
+      tanks.put(tank.id, tank);
+      return right(unit);
+    } catch (_) {
+      return left(const TankFailure.unExpected());
+    }
   }
 }

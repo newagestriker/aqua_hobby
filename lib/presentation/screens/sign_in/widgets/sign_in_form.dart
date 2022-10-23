@@ -27,7 +27,8 @@ class SignInForm extends StatelessWidget {
                             'Invalid email and password combination'));
               },
                   (_) => {
-                        Navigator.of(context).pushNamed(DashboardScreen.route)
+                        Navigator.of(context)
+                            .pushReplacementNamed(DashboardScreen.route)
                       }));
     }, builder: (context, state) {
       return Form(

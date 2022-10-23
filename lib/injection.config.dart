@@ -14,10 +14,11 @@ import 'package:google_sign_in/google_sign_in.dart' as _i4;
 import 'package:image_picker/image_picker.dart' as _i10;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/auth/auth_bloc.dart' as _i15;
+import 'application/auth/auth_bloc.dart' as _i16;
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i14;
+import 'application/tank-setup/tank_setup_bloc.dart' as _i15;
 import 'domain/auth/i_auth_facade.dart' as _i5;
-import 'domain/core/firebase_injectable_module.dart' as _i16;
+import 'domain/core/firebase_injectable_module.dart' as _i17;
 import 'domain/image_chooser/i_image_chooser_facade.dart' as _i7;
 import 'domain/tank/contracts/i_tank_repository.dart' as _i12;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i6;
@@ -52,8 +53,10 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i12.ITankRepository>(() => _i13.TankRepository());
   gh.factory<_i14.SignInFormBloc>(
       () => _i14.SignInFormBloc(get<_i5.IAuthFacade>()));
-  gh.factory<_i15.AuthBloc>(() => _i15.AuthBloc(get<_i5.IAuthFacade>()));
+  gh.factory<_i15.TankSetupBloc>(
+      () => _i15.TankSetupBloc(tankRepository: get<_i12.ITankRepository>()));
+  gh.factory<_i16.AuthBloc>(() => _i16.AuthBloc(get<_i5.IAuthFacade>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i16.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i17.FirebaseInjectableModule {}

@@ -1,18 +1,14 @@
 import 'dart:io';
 
 import 'package:aqua_hobby/domain/tank/models/tank.dart';
+import 'package:aqua_hobby/presentation/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../application/state-management/actions/tank-view-actions.dart';
-import '../../../application/state-management/blocs/tank.dart';
 import '../../../application/tank-setup/tank_setup_bloc.dart';
 
 class TankView extends StatelessWidget {
-  const TankView({Key? key, required this.tank, required this.position})
-      : super(key: key);
+  const TankView({Key? key, required this.tank}) : super(key: key);
   final Tank tank;
-  final int position;
 
   @override
   Widget build(BuildContext context) {
@@ -79,9 +75,10 @@ class TankView extends StatelessWidget {
                               icon: Icons.edit,
                             ),
                             onTap: () {
-                              context
-                                  .read<TankSetupBloc>()
-                                  .add(TankSetupEvent.edit(position: position));
+                              context.read<TankSetupBloc>().add(
+                                  TankSetupEvent.tankConfigured(
+                                      tank: tank,
+                                      tankEntryMode: TankEntryMode.edit));
                             },
                           ),
                           PopupMenuItem(
@@ -91,8 +88,8 @@ class TankView extends StatelessWidget {
                             ),
                             onTap: () {
                               context
-                                  .read<TankBloc>()
-                                  .add(DeleteTankAction(position: position));
+                                  .read<TankSetupBloc>()
+                                  .add(TankDeleted(tank: tank));
                             },
                           )
                         ],

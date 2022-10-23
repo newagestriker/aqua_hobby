@@ -11,4 +11,5 @@ abstract class ITankRepository {
   Either<TankFailure, Unit> delete(Tank tank);
   Either<TankFailure, Unit> update(Tank tank);
   Either<TankFailure, Tank> getById(UniqueId id);
+  init();
 }

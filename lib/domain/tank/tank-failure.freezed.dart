@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TankFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() expected,
+    required TResult Function() unExpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? expected,
+    TResult Function()? unExpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? expected,
+    TResult Function()? unExpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unexpected value) expected,
+    required TResult Function(_Unexpected value) unExpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unexpected value)? expected,
+    TResult Function(_Unexpected value)? unExpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unexpected value)? expected,
+    TResult Function(_Unexpected value)? unExpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,7 +91,7 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   String toString() {
-    return 'TankFailure.expected()';
+    return 'TankFailure.unExpected()';
   }
 
   @override
@@ -106,27 +106,27 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() expected,
+    required TResult Function() unExpected,
   }) {
-    return expected();
+    return unExpected();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? expected,
+    TResult Function()? unExpected,
   }) {
-    return expected?.call();
+    return unExpected?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? expected,
+    TResult Function()? unExpected,
     required TResult orElse(),
   }) {
-    if (expected != null) {
-      return expected();
+    if (unExpected != null) {
+      return unExpected();
     }
     return orElse();
   }
@@ -134,27 +134,27 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unexpected value) expected,
+    required TResult Function(_Unexpected value) unExpected,
   }) {
-    return expected(this);
+    return unExpected(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unexpected value)? expected,
+    TResult Function(_Unexpected value)? unExpected,
   }) {
-    return expected?.call(this);
+    return unExpected?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unexpected value)? expected,
+    TResult Function(_Unexpected value)? unExpected,
     required TResult orElse(),
   }) {
-    if (expected != null) {
-      return expected(this);
+    if (unExpected != null) {
+      return unExpected(this);
     }
     return orElse();
   }
