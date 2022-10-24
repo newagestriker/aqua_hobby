@@ -47,62 +47,71 @@ class _EditTankScreenState extends State<EditTankScreen> {
     }
 
     return SafeArea(
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            context
-                .read<TankSetupBloc>()
-                .add(TankSaved(tank: tank, tankEntryMode: tankEntryMode));
-            Navigator.pop(context);
-          },
-          child: const Icon(Icons.save),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                ImageSelection(
-                  imageFilePath: tank.tankPicPath,
-                  onPressed: _onPressed,
-                ),
-                CustomTextField(
-                    label: "Name",
-                    onChanged: (value) {
-                      tank.setName(value);
-                    },
-                    text: tank.name),
-                CustomTextField(
-                    label: "Type",
-                    onChanged: (value) {
-                      tank.setType(value);
-                    },
-                    text: tank.type),
-                Row(
-                  children: [
-                    Text(_startDate),
-                    IconButton(
-                        color: Theme.of(context).primaryColor,
-                        onPressed: () async {
-                          DateTime? pickedDate = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(1950),
-                              lastDate: DateTime.now());
-
-                          setState(() {
-                            _startDate =
-                                "${pickedDate?.day}/${pickedDate?.month}/${pickedDate?.year}";
-                            log(_startDate);
-                          });
-                        },
-                        icon: const Icon(Icons.calendar_month))
-                  ],
-                )
-              ],
+      child: BlocBuilder<TankSetupBloc, TankSetupState>(
+        builder: (context, state) {
+          return Scaffold(
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                context
+                    .read<TankSetupBloc>()
+                    .add(TankSaved(tankEntryMode: tankEntryMode));
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.save),
             ),
-          ),
-        ),
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    ImageSelection(
+                      imageFilePath: state.currentTank.tankPicPath,
+                      onPressed: (imageFile) {
+                        context.read<TankSetupBloc>().add(TankPicUrlChanged(
+                            imageFile?.path ?? state.currentTank.tankPicPath));
+                      },
+                    ),
+                    CustomTextField(
+                        label: "Name",
+                        onChanged: (value) {
+                          context
+                              .read<TankSetupBloc>()
+                              .add(TankNameChanged(value));
+                        },
+                        text: state.currentTank.name),
+                    CustomTextField(
+                        label: "Type",
+                        onChanged: (value) {
+                          tank.setType(value);
+                        },
+                        text: tank.type),
+                    Row(
+                      children: [
+                        Text(_startDate),
+                        IconButton(
+                            color: Theme.of(context).primaryColor,
+                            onPressed: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(1950),
+                                  lastDate: DateTime.now());
+
+                              setState(() {
+                                _startDate =
+                                    "${pickedDate?.day}/${pickedDate?.month}/${pickedDate?.year}";
+                                log(_startDate);
+                              });
+                            },
+                            icon: const Icon(Icons.calendar_month))
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

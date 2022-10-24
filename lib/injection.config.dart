@@ -54,7 +54,7 @@ _i1.GetIt $initGetIt(
   gh.factory<_i14.SignInFormBloc>(
       () => _i14.SignInFormBloc(get<_i5.IAuthFacade>()));
   gh.factory<_i15.TankSetupBloc>(
-      () => _i15.TankSetupBloc(tankRepository: get<_i12.ITankRepository>()));
+      () => _i15.TankSetupBloc(get<_i12.ITankRepository>()));
   gh.factory<_i16.AuthBloc>(() => _i16.AuthBloc(get<_i5.IAuthFacade>()));
   return get;
 }

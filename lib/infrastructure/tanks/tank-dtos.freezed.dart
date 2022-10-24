@@ -14,21 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+TankDto _$TankDtoFromJson(Map<String, dynamic> json) {
+  return _TankDto.fromJson(json);
+}
+
 /// @nodoc
 mixin _$TankDto {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get type => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get price => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get dateOfPurchase => throw _privateConstructorUsedError;
+  @HiveField(5)
   String get dateOfDismantle => throw _privateConstructorUsedError;
+  @HiveField(6)
   String get status => throw _privateConstructorUsedError;
+  @HiveField(7)
   String get cO2 => throw _privateConstructorUsedError;
+  @HiveField(8)
   String get sellerName => throw _privateConstructorUsedError;
+  @HiveField(9)
   String get sellerRemark => throw _privateConstructorUsedError;
+  @HiveField(10)
   String get notes => throw _privateConstructorUsedError;
+  @HiveField(11)
   String get tankPicPath => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TankDtoCopyWith<TankDto> get copyWith => throw _privateConstructorUsedError;
 }
@@ -38,18 +55,18 @@ abstract class $TankDtoCopyWith<$Res> {
   factory $TankDtoCopyWith(TankDto value, $Res Function(TankDto) then) =
       _$TankDtoCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String name,
-      String type,
-      String price,
-      String dateOfPurchase,
-      String dateOfDismantle,
-      String status,
-      String cO2,
-      String sellerName,
-      String sellerRemark,
-      String notes,
-      String tankPicPath});
+      {@HiveField(0) String id,
+      @HiveField(1) String name,
+      @HiveField(2) String type,
+      @HiveField(3) String price,
+      @HiveField(4) String dateOfPurchase,
+      @HiveField(5) String dateOfDismantle,
+      @HiveField(6) String status,
+      @HiveField(7) String cO2,
+      @HiveField(8) String sellerName,
+      @HiveField(9) String sellerRemark,
+      @HiveField(10) String notes,
+      @HiveField(11) String tankPicPath});
 }
 
 /// @nodoc
@@ -135,18 +152,18 @@ abstract class _$$_TankDtoCopyWith<$Res> implements $TankDtoCopyWith<$Res> {
       __$$_TankDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String name,
-      String type,
-      String price,
-      String dateOfPurchase,
-      String dateOfDismantle,
-      String status,
-      String cO2,
-      String sellerName,
-      String sellerRemark,
-      String notes,
-      String tankPicPath});
+      {@HiveField(0) String id,
+      @HiveField(1) String name,
+      @HiveField(2) String type,
+      @HiveField(3) String price,
+      @HiveField(4) String dateOfPurchase,
+      @HiveField(5) String dateOfDismantle,
+      @HiveField(6) String status,
+      @HiveField(7) String cO2,
+      @HiveField(8) String sellerName,
+      @HiveField(9) String sellerRemark,
+      @HiveField(10) String notes,
+      @HiveField(11) String tankPicPath});
 }
 
 /// @nodoc
@@ -227,46 +244,61 @@ class __$$_TankDtoCopyWithImpl<$Res> extends _$TankDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_TankDto extends _TankDto {
   const _$_TankDto(
-      {required this.id,
-      required this.name,
-      required this.type,
-      required this.price,
-      required this.dateOfPurchase,
-      required this.dateOfDismantle,
-      required this.status,
-      required this.cO2,
-      required this.sellerName,
-      required this.sellerRemark,
-      required this.notes,
-      required this.tankPicPath})
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.name,
+      @HiveField(2) required this.type,
+      @HiveField(3) required this.price,
+      @HiveField(4) required this.dateOfPurchase,
+      @HiveField(5) required this.dateOfDismantle,
+      @HiveField(6) required this.status,
+      @HiveField(7) required this.cO2,
+      @HiveField(8) required this.sellerName,
+      @HiveField(9) required this.sellerRemark,
+      @HiveField(10) required this.notes,
+      @HiveField(11) required this.tankPicPath})
       : super._();
 
+  factory _$_TankDto.fromJson(Map<String, dynamic> json) =>
+      _$$_TankDtoFromJson(json);
+
   @override
+  @HiveField(0)
   final String id;
   @override
+  @HiveField(1)
   final String name;
   @override
+  @HiveField(2)
   final String type;
   @override
+  @HiveField(3)
   final String price;
   @override
+  @HiveField(4)
   final String dateOfPurchase;
   @override
+  @HiveField(5)
   final String dateOfDismantle;
   @override
+  @HiveField(6)
   final String status;
   @override
+  @HiveField(7)
   final String cO2;
   @override
+  @HiveField(8)
   final String sellerName;
   @override
+  @HiveField(9)
   final String sellerRemark;
   @override
+  @HiveField(10)
   final String notes;
   @override
+  @HiveField(11)
   final String tankPicPath;
 
   @override
@@ -298,6 +330,7 @@ class _$_TankDto extends _TankDto {
                 .equals(other.tankPicPath, tankPicPath));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -318,47 +351,68 @@ class _$_TankDto extends _TankDto {
   @override
   _$$_TankDtoCopyWith<_$_TankDto> get copyWith =>
       __$$_TankDtoCopyWithImpl<_$_TankDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TankDtoToJson(
+      this,
+    );
+  }
 }
 
 abstract class _TankDto extends TankDto {
   const factory _TankDto(
-      {required final String id,
-      required final String name,
-      required final String type,
-      required final String price,
-      required final String dateOfPurchase,
-      required final String dateOfDismantle,
-      required final String status,
-      required final String cO2,
-      required final String sellerName,
-      required final String sellerRemark,
-      required final String notes,
-      required final String tankPicPath}) = _$_TankDto;
+      {@HiveField(0) required final String id,
+      @HiveField(1) required final String name,
+      @HiveField(2) required final String type,
+      @HiveField(3) required final String price,
+      @HiveField(4) required final String dateOfPurchase,
+      @HiveField(5) required final String dateOfDismantle,
+      @HiveField(6) required final String status,
+      @HiveField(7) required final String cO2,
+      @HiveField(8) required final String sellerName,
+      @HiveField(9) required final String sellerRemark,
+      @HiveField(10) required final String notes,
+      @HiveField(11) required final String tankPicPath}) = _$_TankDto;
   const _TankDto._() : super._();
 
+  factory _TankDto.fromJson(Map<String, dynamic> json) = _$_TankDto.fromJson;
+
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   String get type;
   @override
+  @HiveField(3)
   String get price;
   @override
+  @HiveField(4)
   String get dateOfPurchase;
   @override
+  @HiveField(5)
   String get dateOfDismantle;
   @override
+  @HiveField(6)
   String get status;
   @override
+  @HiveField(7)
   String get cO2;
   @override
+  @HiveField(8)
   String get sellerName;
   @override
+  @HiveField(9)
   String get sellerRemark;
   @override
+  @HiveField(10)
   String get notes;
   @override
+  @HiveField(11)
   String get tankPicPath;
   @override
   @JsonKey(ignore: true)

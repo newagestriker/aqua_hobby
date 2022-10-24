@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:aqua_hobby/presentation/enums.dart';
 import 'package:aqua_hobby/presentation/screens/dashboard_screen/tank_view.dart';
 import 'package:aqua_hobby/presentation/screens/edit-tank-screen/main_view.dart';
@@ -15,51 +17,49 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: BlocConsumer<TankSetupBloc, TankSetupState>(
-          listener: (context, state) {
-            if (state.tankEntryMode != null) {
-              Navigator.pushNamed(context, EditTankScreen.route,
+      child:
+          BlocBuilder<TankSetupBloc, TankSetupState>(builder: (context, state) {
+        return Scaffold(
+          body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            physics: const NeverScrollableScrollPhysics(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 200.0,
+                  child: ListView.builder(
+                    itemCount: state.tanks.size,
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder: (context, position) {
+                      return TankView(
+                        tank: state.tanks[position],
+                        position: position,
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          floatingActionButton: FloatingActionButton.extended(
+            onPressed: () {
+              context.read<TankSetupBloc>().add(TankSetupEvent.tankConfigured(
+                  currentTank: Tank(),
+                  tankEntryMode: TankEntryMode.add,
+                  currentPosition: -1));
+              Navigator.pushReplacementNamed(context, EditTankScreen.route,
                   arguments: EditTankScreenArguments(
-                      tank: state.tankEntryMode == TankEntryMode.add
-                          ? Tank()
-                          : state.currentTank,
-                      tankEntryMode: state.tankEntryMode!));
-            }
-          },
-          builder: (context, state) {
-            return SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              physics: const NeverScrollableScrollPhysics(),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                      height: 200.0,
-                      child: ListView.builder(
-                          itemCount: state.tanks.size,
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemBuilder: (context, position) {
-                            return TankView(
-                              tank: state.tanks[position],
-                            );
-                          })),
-                ],
-              ),
-            );
-          },
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            context.read<TankSetupBloc>().add(TankSetupEvent.tankConfigured(
-                tank: Tank(), tankEntryMode: TankEntryMode.add));
-          },
-          tooltip: 'Add a tank',
-          label: const Text("Add a tank"),
-          icon: const Icon(Icons.add),
-        ),
-      ),
+                      tank: state.currentTank,
+                      tankEntryMode: state.tankEntryMode));
+            },
+            tooltip: 'Add a tank',
+            label: const Text("Add a tank"),
+            icon: const Icon(Icons.add),
+          ),
+        );
+      }),
     );
   }
 }

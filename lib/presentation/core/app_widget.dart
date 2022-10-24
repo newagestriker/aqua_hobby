@@ -20,7 +20,8 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => TankSetupBloc()),
+        BlocProvider(
+            create: (_) => getIt<TankSetupBloc>()..add(const TanksLoaded())),
         BlocProvider(create: (_) => getIt<SignInFormBloc>()),
         BlocProvider(
             create: (_) =>

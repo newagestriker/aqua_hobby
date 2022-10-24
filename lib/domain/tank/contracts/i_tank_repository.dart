@@ -7,7 +7,7 @@ import '../tank-failure.dart';
 
 abstract class ITankRepository {
   Either<TankFailure, KtList<Tank>> getAll();
-  Either<TankFailure, Unit> create(Tank tank);
+  Future<Either<TankFailure, Unit>> create(Tank tank);
   Either<TankFailure, Unit> delete(Tank tank);
   Either<TankFailure, Unit> update(Tank tank);
   Either<TankFailure, Tank> getById(UniqueId id);

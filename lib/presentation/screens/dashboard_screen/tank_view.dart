@@ -7,8 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/tank-setup/tank_setup_bloc.dart';
 
 class TankView extends StatelessWidget {
-  const TankView({Key? key, required this.tank}) : super(key: key);
+  const TankView({Key? key, required this.tank, required this.position})
+      : super(key: key);
   final Tank tank;
+  final int position;
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +79,9 @@ class TankView extends StatelessWidget {
                             onTap: () {
                               context.read<TankSetupBloc>().add(
                                   TankSetupEvent.tankConfigured(
-                                      tank: tank,
-                                      tankEntryMode: TankEntryMode.edit));
+                                      currentTank: tank,
+                                      tankEntryMode: TankEntryMode.edit,
+                                      currentPosition: position));
                             },
                           ),
                           PopupMenuItem(
@@ -87,9 +90,8 @@ class TankView extends StatelessWidget {
                               icon: Icons.delete,
                             ),
                             onTap: () {
-                              context
-                                  .read<TankSetupBloc>()
-                                  .add(TankDeleted(tank: tank));
+                              context.read<TankSetupBloc>().add(
+                                  TankDeleted(tank: tank, position: position));
                             },
                           )
                         ],

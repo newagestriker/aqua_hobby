@@ -1,3 +1,4 @@
+import 'package:aqua_hobby/infrastructure/tanks/tank-dtos.dart';
 import 'package:aqua_hobby/injection.dart';
 import 'package:aqua_hobby/presentation/core/app_widget.dart';
 
@@ -13,6 +14,7 @@ import 'package:path_provider/path_provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  Hive.registerAdapter(TankDtoAdapter());
   await Firebase.initializeApp();
   configureInjection(Environment.prod);
 

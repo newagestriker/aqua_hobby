@@ -13,38 +13,57 @@ part 'tank_setup_bloc.freezed.dart';
 
 @injectable
 class TankSetupBloc extends Bloc<TankSetupEvent, TankSetupState> {
-  TankSetupBloc({ITankRepository? tankRepository})
+  final ITankRepository tankRepository;
+  TankSetupBloc(this.tankRepository)
       : super(_Initial(
+            tanks: emptyList<Tank>(),
             currentTank: Tank(),
-            tanks:
-                tankRepository?.getAll().fold((f) => emptyList(), (r) => r) ??
-                    emptyList())) {
+            tankEntryMode: TankEntryMode.add,
+            currentPosition: -1)) {
     on<TankSetupEvent>((event, emit) async {
-      await tankRepository?.init();
-      event.map(
+      await event.map(
           tankNameChanged: (e) {
-            var newTank = state.currentTank;
-            newTank.name = e.input;
-            emit(state.copyWith(currentTank: state.currentTank));
+            var newTank = state.currentTank.setName(e.input);
+            emit(state.copyWith(currentTank: newTank));
           },
-          tankTypeChanged: (e) {},
+          tankTypeChanged: (e) {
+            var newTank = state.currentTank.setType(e.input);
+            emit(state.copyWith(currentTank: newTank));
+          },
           tankPriceChanged: (e) {},
           tankDateOfPurchaseChanged: (e) {},
           tankDateOfDismantleChanged: (e) {},
           tankStatusChanged: (e) {},
           tankSaved: (e) {
             e.tankEntryMode == TankEntryMode.add
-                ? tankRepository?.create(e.tank)
-                : tankRepository?.update(e.tank);
+                ? tankRepository.create(state.currentTank)
+                : tankRepository.update(state.currentTank);
+            var newList = state.tanks.plusElement(state.currentTank);
+            emit(state.copyWith(tanks: newList));
           },
           tankConfigured: (e) {
-            emit(state.copyWith(
-              currentTank: e.tank,
-              tankEntryMode: e.tankEntryMode,
-            ));
+            var newState = state.copyWith(
+                tankEntryMode: e.tankEntryMode,
+                currentTank: e.currentTank,
+                currentPosition: e.currentPosition);
+            emit(newState);
           },
           tankDeleted: (e) {
-            tankRepository?.delete(e.tank);
+            tankRepository.delete(e.tank);
+            var mutableList = state.tanks.toMutableList();
+            mutableList.removeAt(e.position);
+            emit(state.copyWith(tanks: mutableList));
+          },
+          tanksLoaded: (e) async {
+            await tankRepository.init();
+            emit(state.copyWith(
+                tanks: tankRepository
+                    .getAll()
+                    .fold((l) => emptyList(), (r) => r)));
+          },
+          tankPicUrlChanged: (e) {
+            var newTank = state.currentTank.setTankPicPath(e.urlStr);
+            emit(state.copyWith(currentTank: newTank));
           });
     });
   }

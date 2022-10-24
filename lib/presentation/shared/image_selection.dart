@@ -8,11 +8,15 @@ import '../../domain/image_chooser/i_image_chooser_facade.dart';
 
 class ImageSelection extends StatelessWidget {
   ImageSelection({Key? key, this.imageFilePath, required this.onPressed})
-      : super(key: key);
+      : super(key: key) {
+    _imageFilePath = imageFilePath;
+  }
   final String? imageFilePath;
   final void Function(File?) onPressed;
   final _imageChooserFacade =
       getIt<IImageChooserFacade<Future<File?>, ImageSource>>();
+
+  String? _imageFilePath;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,7 @@ class ImageSelection extends StatelessWidget {
                       Navigator.pop(context, "Camera");
                       _imageChooserFacade.setStrategy(ImageSource.camera);
                       File? imageFile = await _imageChooserFacade.getImage();
+                      _imageFilePath = imageFile?.path;
                       onPressed(imageFile);
                     },
                   ),
@@ -52,6 +57,7 @@ class ImageSelection extends StatelessWidget {
                       Navigator.pop(context, "Gallery");
                       _imageChooserFacade.setStrategy(ImageSource.gallery);
                       File? imageFile = await _imageChooserFacade.getImage();
+                      _imageFilePath = imageFile?.path;
                       onPressed(imageFile);
                     },
                   )
@@ -65,7 +71,7 @@ class ImageSelection extends StatelessWidget {
           border: Border.all(color: Theme.of(context).primaryColorDark),
           color: Theme.of(context).primaryColorLight),
       width: MediaQuery.of(context).size.width,
-      child: imageFilePath?.isEmpty ?? false
+      child: _imageFilePath?.isEmpty ?? false
           ? Center(
               child: ElevatedButton(
                   onPressed: _onPressed, child: const Text("Select an image")),

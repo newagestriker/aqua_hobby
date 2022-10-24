@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:aqua_hobby/domain/core/value_object.dart';
 import 'package:aqua_hobby/domain/tank/contracts/i_tank_repository.dart';
 import 'package:aqua_hobby/infrastructure/tanks/tank-dtos.dart';
@@ -10,17 +12,17 @@ import 'package:kt_dart/collection.dart';
 
 @LazySingleton(as: ITankRepository)
 class TankRepository implements ITankRepository {
-  late final Box tanks;
+  late final Box<TankDto> tanks;
   @override
   Future<void> init() async {
-    tanks = await Hive.openBox('TankBox');
+    tanks = await Hive.openBox<TankDto>('TankBox');
   }
 
   @override
-  Either<TankFailure, Unit> create(Tank tank) {
+  Future<Either<TankFailure, Unit>> create(Tank tank) async {
     try {
       TankDto tankDto = TankDto.fromDomain(tank);
-      tanks.put(tankDto.id, tankDto);
+      await tanks.put(tankDto.id, tankDto);
       return right(unit);
     } catch (_) {
       return left(const TankFailure.unExpected());
@@ -40,11 +42,12 @@ class TankRepository implements ITankRepository {
 
   @override
   Either<TankFailure, KtList<Tank>> getAll() {
+    log(tanks.values.toString());
     try {
-      return right(tanks.values
-          .map((value) => (value as TankDto).toDomain)
-          .toImmutableList());
-    } catch (_) {
+      return right(
+          tanks.values.map((value) => value.toDomain).toImmutableList());
+    } catch (e) {
+      log(e.toString());
       return left(const TankFailure.unExpected());
     }
   }
@@ -52,7 +55,8 @@ class TankRepository implements ITankRepository {
   @override
   Either<TankFailure, Tank> getById(UniqueId id) {
     try {
-      return right(tanks.get(id));
+      return right(
+          tanks.get(id)?.toDomain ?? Tank()); //TODO: Create a value failure
     } catch (_) {
       return left(const TankFailure.unExpected());
     }
@@ -61,7 +65,7 @@ class TankRepository implements ITankRepository {
   @override
   Either<TankFailure, Unit> update(Tank tank) {
     try {
-      tanks.put(tank.id, tank);
+      tanks.put(tank.id, TankDto.fromDomain(tank));
       return right(unit);
     } catch (_) {
       return left(const TankFailure.unExpected());

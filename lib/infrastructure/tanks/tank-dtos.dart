@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 
 import '../../domain/tank/models/tank.dart';
 
@@ -6,22 +7,22 @@ part 'tank-dtos.freezed.dart';
 
 part 'tank-dtos.g.dart';
 
-@JsonSerializable()
 @freezed
+@HiveType(typeId: 0)
 class TankDto with _$TankDto {
   const factory TankDto({
-    required String id,
-    required String name,
-    required String type,
-    required String price,
-    required String dateOfPurchase,
-    required String dateOfDismantle,
-    required String status,
-    required String cO2,
-    required String sellerName,
-    required String sellerRemark,
-    required String notes,
-    required String tankPicPath,
+    @HiveField(0) required String id,
+    @HiveField(1) required String name,
+    @HiveField(2) required String type,
+    @HiveField(3) required String price,
+    @HiveField(4) required String dateOfPurchase,
+    @HiveField(5) required String dateOfDismantle,
+    @HiveField(6) required String status,
+    @HiveField(7) required String cO2,
+    @HiveField(8) required String sellerName,
+    @HiveField(9) required String sellerRemark,
+    @HiveField(10) required String notes,
+    @HiveField(11) required String tankPicPath,
   }) = _TankDto;
 
   const TankDto._();
@@ -54,4 +55,7 @@ class TankDto with _$TankDto {
       .setSellerRemark(sellerRemark)
       .setNotes(notes)
       .setTankPicPath(tankPicPath);
+
+  factory TankDto.fromJson(Map<String, dynamic> json) =>
+      _$TankDtoFromJson(json);
 }

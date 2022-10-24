@@ -18,50 +18,63 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TankSetupEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -74,9 +87,11 @@ mixin _$TankSetupEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -89,9 +104,11 @@ mixin _$TankSetupEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -123,11 +140,183 @@ class _$TankSetupEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+abstract class _$$TanksLoadedCopyWith<$Res> {
+  factory _$$TanksLoadedCopyWith(
+          _$TanksLoaded value, $Res Function(_$TanksLoaded) then) =
+      __$$TanksLoadedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TanksLoadedCopyWithImpl<$Res>
+    extends _$TankSetupEventCopyWithImpl<$Res>
+    implements _$$TanksLoadedCopyWith<$Res> {
+  __$$TanksLoadedCopyWithImpl(
+      _$TanksLoaded _value, $Res Function(_$TanksLoaded) _then)
+      : super(_value, (v) => _then(v as _$TanksLoaded));
+
+  @override
+  _$TanksLoaded get _value => super._value as _$TanksLoaded;
+}
+
+/// @nodoc
+
+class _$TanksLoaded implements TanksLoaded {
+  const _$TanksLoaded();
+
+  @override
+  String toString() {
+    return 'TankSetupEvent.tanksLoaded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$TanksLoaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
+        tankConfigured,
+    required TResult Function(String input) tankNameChanged,
+    required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
+    required TResult Function(String input) tankPriceChanged,
+    required TResult Function(String input) tankDateOfPurchaseChanged,
+    required TResult Function(String input) tankDateOfDismantleChanged,
+    required TResult Function(String input) tankStatusChanged,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
+  }) {
+    return tanksLoaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
+    TResult Function(String input)? tankNameChanged,
+    TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
+    TResult Function(String input)? tankPriceChanged,
+    TResult Function(String input)? tankDateOfPurchaseChanged,
+    TResult Function(String input)? tankDateOfDismantleChanged,
+    TResult Function(String input)? tankStatusChanged,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
+  }) {
+    return tanksLoaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
+    TResult Function(String input)? tankNameChanged,
+    TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
+    TResult Function(String input)? tankPriceChanged,
+    TResult Function(String input)? tankDateOfPurchaseChanged,
+    TResult Function(String input)? tankDateOfDismantleChanged,
+    TResult Function(String input)? tankStatusChanged,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
+    required TResult orElse(),
+  }) {
+    if (tanksLoaded != null) {
+      return tanksLoaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
+    required TResult Function(TankConfigured value) tankConfigured,
+    required TResult Function(TankNameChanged value) tankNameChanged,
+    required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
+    required TResult Function(TankPriceChanged value) tankPriceChanged,
+    required TResult Function(TankDateOfPurchaseChanged value)
+        tankDateOfPurchaseChanged,
+    required TResult Function(TankDateOfDismantleChanged value)
+        tankDateOfDismantleChanged,
+    required TResult Function(TankStatusChanged value) tankStatusChanged,
+    required TResult Function(TankSaved value) tankSaved,
+    required TResult Function(TankDeleted value) tankDeleted,
+  }) {
+    return tanksLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
+    TResult Function(TankConfigured value)? tankConfigured,
+    TResult Function(TankNameChanged value)? tankNameChanged,
+    TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
+    TResult Function(TankPriceChanged value)? tankPriceChanged,
+    TResult Function(TankDateOfPurchaseChanged value)?
+        tankDateOfPurchaseChanged,
+    TResult Function(TankDateOfDismantleChanged value)?
+        tankDateOfDismantleChanged,
+    TResult Function(TankStatusChanged value)? tankStatusChanged,
+    TResult Function(TankSaved value)? tankSaved,
+    TResult Function(TankDeleted value)? tankDeleted,
+  }) {
+    return tanksLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
+    TResult Function(TankConfigured value)? tankConfigured,
+    TResult Function(TankNameChanged value)? tankNameChanged,
+    TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
+    TResult Function(TankPriceChanged value)? tankPriceChanged,
+    TResult Function(TankDateOfPurchaseChanged value)?
+        tankDateOfPurchaseChanged,
+    TResult Function(TankDateOfDismantleChanged value)?
+        tankDateOfDismantleChanged,
+    TResult Function(TankStatusChanged value)? tankStatusChanged,
+    TResult Function(TankSaved value)? tankSaved,
+    TResult Function(TankDeleted value)? tankDeleted,
+    required TResult orElse(),
+  }) {
+    if (tanksLoaded != null) {
+      return tanksLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TanksLoaded implements TankSetupEvent {
+  const factory TanksLoaded() = _$TanksLoaded;
+}
+
+/// @nodoc
 abstract class _$$TankConfiguredCopyWith<$Res> {
   factory _$$TankConfiguredCopyWith(
           _$TankConfigured value, $Res Function(_$TankConfigured) then) =
       __$$TankConfiguredCopyWithImpl<$Res>;
-  $Res call({TankEntryMode tankEntryMode, Tank tank});
+  $Res call(
+      {TankEntryMode tankEntryMode, Tank currentTank, int currentPosition});
 }
 
 /// @nodoc
@@ -144,17 +333,22 @@ class __$$TankConfiguredCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tankEntryMode = freezed,
-    Object? tank = freezed,
+    Object? currentTank = freezed,
+    Object? currentPosition = freezed,
   }) {
     return _then(_$TankConfigured(
       tankEntryMode: tankEntryMode == freezed
           ? _value.tankEntryMode
           : tankEntryMode // ignore: cast_nullable_to_non_nullable
               as TankEntryMode,
-      tank: tank == freezed
-          ? _value.tank
-          : tank // ignore: cast_nullable_to_non_nullable
+      currentTank: currentTank == freezed
+          ? _value.currentTank
+          : currentTank // ignore: cast_nullable_to_non_nullable
               as Tank,
+      currentPosition: currentPosition == freezed
+          ? _value.currentPosition
+          : currentPosition // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -162,16 +356,21 @@ class __$$TankConfiguredCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TankConfigured implements TankConfigured {
-  const _$TankConfigured({required this.tankEntryMode, required this.tank});
+  const _$TankConfigured(
+      {required this.tankEntryMode,
+      required this.currentTank,
+      required this.currentPosition});
 
   @override
   final TankEntryMode tankEntryMode;
   @override
-  final Tank tank;
+  final Tank currentTank;
+  @override
+  final int currentPosition;
 
   @override
   String toString() {
-    return 'TankSetupEvent.tankConfigured(tankEntryMode: $tankEntryMode, tank: $tank)';
+    return 'TankSetupEvent.tankConfigured(tankEntryMode: $tankEntryMode, currentTank: $currentTank, currentPosition: $currentPosition)';
   }
 
   @override
@@ -181,14 +380,18 @@ class _$TankConfigured implements TankConfigured {
             other is _$TankConfigured &&
             const DeepCollectionEquality()
                 .equals(other.tankEntryMode, tankEntryMode) &&
-            const DeepCollectionEquality().equals(other.tank, tank));
+            const DeepCollectionEquality()
+                .equals(other.currentTank, currentTank) &&
+            const DeepCollectionEquality()
+                .equals(other.currentPosition, currentPosition));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(tankEntryMode),
-      const DeepCollectionEquality().hash(tank));
+      const DeepCollectionEquality().hash(currentTank),
+      const DeepCollectionEquality().hash(currentPosition));
 
   @JsonKey(ignore: true)
   @override
@@ -198,52 +401,63 @@ class _$TankConfigured implements TankConfigured {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
-    return tankConfigured(tankEntryMode, tank);
+    return tankConfigured(tankEntryMode, currentTank, currentPosition);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
-    return tankConfigured?.call(tankEntryMode, tank);
+    return tankConfigured?.call(tankEntryMode, currentTank, currentPosition);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankConfigured != null) {
-      return tankConfigured(tankEntryMode, tank);
+      return tankConfigured(tankEntryMode, currentTank, currentPosition);
     }
     return orElse();
   }
@@ -251,9 +465,11 @@ class _$TankConfigured implements TankConfigured {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -269,9 +485,11 @@ class _$TankConfigured implements TankConfigured {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -287,9 +505,11 @@ class _$TankConfigured implements TankConfigured {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -310,10 +530,12 @@ class _$TankConfigured implements TankConfigured {
 abstract class TankConfigured implements TankSetupEvent {
   const factory TankConfigured(
       {required final TankEntryMode tankEntryMode,
-      required final Tank tank}) = _$TankConfigured;
+      required final Tank currentTank,
+      required final int currentPosition}) = _$TankConfigured;
 
   TankEntryMode get tankEntryMode;
-  Tank get tank;
+  Tank get currentTank;
+  int get currentPosition;
   @JsonKey(ignore: true)
   _$$TankConfiguredCopyWith<_$TankConfigured> get copyWith =>
       throw _privateConstructorUsedError;
@@ -384,16 +606,19 @@ class _$TankNameChanged implements TankNameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
     return tankNameChanged(input);
   }
@@ -401,15 +626,19 @@ class _$TankNameChanged implements TankNameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
     return tankNameChanged?.call(input);
   }
@@ -417,15 +646,19 @@ class _$TankNameChanged implements TankNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankNameChanged != null) {
@@ -437,9 +670,11 @@ class _$TankNameChanged implements TankNameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -455,9 +690,11 @@ class _$TankNameChanged implements TankNameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -473,9 +710,11 @@ class _$TankNameChanged implements TankNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -567,16 +806,19 @@ class _$TankTypeChanged implements TankTypeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
     return tankTypeChanged(input);
   }
@@ -584,15 +826,19 @@ class _$TankTypeChanged implements TankTypeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
     return tankTypeChanged?.call(input);
   }
@@ -600,15 +846,19 @@ class _$TankTypeChanged implements TankTypeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankTypeChanged != null) {
@@ -620,9 +870,11 @@ class _$TankTypeChanged implements TankTypeChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -638,9 +890,11 @@ class _$TankTypeChanged implements TankTypeChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -656,9 +910,11 @@ class _$TankTypeChanged implements TankTypeChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -682,6 +938,206 @@ abstract class TankTypeChanged implements TankSetupEvent {
   String get input;
   @JsonKey(ignore: true)
   _$$TankTypeChangedCopyWith<_$TankTypeChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TankPicUrlChangedCopyWith<$Res> {
+  factory _$$TankPicUrlChangedCopyWith(
+          _$TankPicUrlChanged value, $Res Function(_$TankPicUrlChanged) then) =
+      __$$TankPicUrlChangedCopyWithImpl<$Res>;
+  $Res call({String urlStr});
+}
+
+/// @nodoc
+class __$$TankPicUrlChangedCopyWithImpl<$Res>
+    extends _$TankSetupEventCopyWithImpl<$Res>
+    implements _$$TankPicUrlChangedCopyWith<$Res> {
+  __$$TankPicUrlChangedCopyWithImpl(
+      _$TankPicUrlChanged _value, $Res Function(_$TankPicUrlChanged) _then)
+      : super(_value, (v) => _then(v as _$TankPicUrlChanged));
+
+  @override
+  _$TankPicUrlChanged get _value => super._value as _$TankPicUrlChanged;
+
+  @override
+  $Res call({
+    Object? urlStr = freezed,
+  }) {
+    return _then(_$TankPicUrlChanged(
+      urlStr == freezed
+          ? _value.urlStr
+          : urlStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TankPicUrlChanged implements TankPicUrlChanged {
+  const _$TankPicUrlChanged(this.urlStr);
+
+  @override
+  final String urlStr;
+
+  @override
+  String toString() {
+    return 'TankSetupEvent.tankPicUrlChanged(urlStr: $urlStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TankPicUrlChanged &&
+            const DeepCollectionEquality().equals(other.urlStr, urlStr));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(urlStr));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$TankPicUrlChangedCopyWith<_$TankPicUrlChanged> get copyWith =>
+      __$$TankPicUrlChangedCopyWithImpl<_$TankPicUrlChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
+        tankConfigured,
+    required TResult Function(String input) tankNameChanged,
+    required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
+    required TResult Function(String input) tankPriceChanged,
+    required TResult Function(String input) tankDateOfPurchaseChanged,
+    required TResult Function(String input) tankDateOfDismantleChanged,
+    required TResult Function(String input) tankStatusChanged,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
+  }) {
+    return tankPicUrlChanged(urlStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
+    TResult Function(String input)? tankNameChanged,
+    TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
+    TResult Function(String input)? tankPriceChanged,
+    TResult Function(String input)? tankDateOfPurchaseChanged,
+    TResult Function(String input)? tankDateOfDismantleChanged,
+    TResult Function(String input)? tankStatusChanged,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
+  }) {
+    return tankPicUrlChanged?.call(urlStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
+    TResult Function(String input)? tankNameChanged,
+    TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
+    TResult Function(String input)? tankPriceChanged,
+    TResult Function(String input)? tankDateOfPurchaseChanged,
+    TResult Function(String input)? tankDateOfDismantleChanged,
+    TResult Function(String input)? tankStatusChanged,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
+    required TResult orElse(),
+  }) {
+    if (tankPicUrlChanged != null) {
+      return tankPicUrlChanged(urlStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
+    required TResult Function(TankConfigured value) tankConfigured,
+    required TResult Function(TankNameChanged value) tankNameChanged,
+    required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
+    required TResult Function(TankPriceChanged value) tankPriceChanged,
+    required TResult Function(TankDateOfPurchaseChanged value)
+        tankDateOfPurchaseChanged,
+    required TResult Function(TankDateOfDismantleChanged value)
+        tankDateOfDismantleChanged,
+    required TResult Function(TankStatusChanged value) tankStatusChanged,
+    required TResult Function(TankSaved value) tankSaved,
+    required TResult Function(TankDeleted value) tankDeleted,
+  }) {
+    return tankPicUrlChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
+    TResult Function(TankConfigured value)? tankConfigured,
+    TResult Function(TankNameChanged value)? tankNameChanged,
+    TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
+    TResult Function(TankPriceChanged value)? tankPriceChanged,
+    TResult Function(TankDateOfPurchaseChanged value)?
+        tankDateOfPurchaseChanged,
+    TResult Function(TankDateOfDismantleChanged value)?
+        tankDateOfDismantleChanged,
+    TResult Function(TankStatusChanged value)? tankStatusChanged,
+    TResult Function(TankSaved value)? tankSaved,
+    TResult Function(TankDeleted value)? tankDeleted,
+  }) {
+    return tankPicUrlChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
+    TResult Function(TankConfigured value)? tankConfigured,
+    TResult Function(TankNameChanged value)? tankNameChanged,
+    TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
+    TResult Function(TankPriceChanged value)? tankPriceChanged,
+    TResult Function(TankDateOfPurchaseChanged value)?
+        tankDateOfPurchaseChanged,
+    TResult Function(TankDateOfDismantleChanged value)?
+        tankDateOfDismantleChanged,
+    TResult Function(TankStatusChanged value)? tankStatusChanged,
+    TResult Function(TankSaved value)? tankSaved,
+    TResult Function(TankDeleted value)? tankDeleted,
+    required TResult orElse(),
+  }) {
+    if (tankPicUrlChanged != null) {
+      return tankPicUrlChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TankPicUrlChanged implements TankSetupEvent {
+  const factory TankPicUrlChanged(final String urlStr) = _$TankPicUrlChanged;
+
+  String get urlStr;
+  @JsonKey(ignore: true)
+  _$$TankPicUrlChangedCopyWith<_$TankPicUrlChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -750,16 +1206,19 @@ class _$TankPriceChanged implements TankPriceChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
     return tankPriceChanged(input);
   }
@@ -767,15 +1226,19 @@ class _$TankPriceChanged implements TankPriceChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
     return tankPriceChanged?.call(input);
   }
@@ -783,15 +1246,19 @@ class _$TankPriceChanged implements TankPriceChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankPriceChanged != null) {
@@ -803,9 +1270,11 @@ class _$TankPriceChanged implements TankPriceChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -821,9 +1290,11 @@ class _$TankPriceChanged implements TankPriceChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -839,9 +1310,11 @@ class _$TankPriceChanged implements TankPriceChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -936,16 +1409,19 @@ class _$TankDateOfPurchaseChanged implements TankDateOfPurchaseChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
     return tankDateOfPurchaseChanged(input);
   }
@@ -953,15 +1429,19 @@ class _$TankDateOfPurchaseChanged implements TankDateOfPurchaseChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
     return tankDateOfPurchaseChanged?.call(input);
   }
@@ -969,15 +1449,19 @@ class _$TankDateOfPurchaseChanged implements TankDateOfPurchaseChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankDateOfPurchaseChanged != null) {
@@ -989,9 +1473,11 @@ class _$TankDateOfPurchaseChanged implements TankDateOfPurchaseChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -1007,9 +1493,11 @@ class _$TankDateOfPurchaseChanged implements TankDateOfPurchaseChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1025,9 +1513,11 @@ class _$TankDateOfPurchaseChanged implements TankDateOfPurchaseChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1124,16 +1614,19 @@ class _$TankDateOfDismantleChanged implements TankDateOfDismantleChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
     return tankDateOfDismantleChanged(input);
   }
@@ -1141,15 +1634,19 @@ class _$TankDateOfDismantleChanged implements TankDateOfDismantleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
     return tankDateOfDismantleChanged?.call(input);
   }
@@ -1157,15 +1654,19 @@ class _$TankDateOfDismantleChanged implements TankDateOfDismantleChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankDateOfDismantleChanged != null) {
@@ -1177,9 +1678,11 @@ class _$TankDateOfDismantleChanged implements TankDateOfDismantleChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -1195,9 +1698,11 @@ class _$TankDateOfDismantleChanged implements TankDateOfDismantleChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1213,9 +1718,11 @@ class _$TankDateOfDismantleChanged implements TankDateOfDismantleChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1308,16 +1815,19 @@ class _$TankStatusChanged implements TankStatusChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
     return tankStatusChanged(input);
   }
@@ -1325,15 +1835,19 @@ class _$TankStatusChanged implements TankStatusChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
     return tankStatusChanged?.call(input);
   }
@@ -1341,15 +1855,19 @@ class _$TankStatusChanged implements TankStatusChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankStatusChanged != null) {
@@ -1361,9 +1879,11 @@ class _$TankStatusChanged implements TankStatusChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -1379,9 +1899,11 @@ class _$TankStatusChanged implements TankStatusChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1397,9 +1919,11 @@ class _$TankStatusChanged implements TankStatusChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1431,7 +1955,7 @@ abstract class _$$TankSavedCopyWith<$Res> {
   factory _$$TankSavedCopyWith(
           _$TankSaved value, $Res Function(_$TankSaved) then) =
       __$$TankSavedCopyWithImpl<$Res>;
-  $Res call({Tank tank, TankEntryMode tankEntryMode});
+  $Res call({TankEntryMode tankEntryMode});
 }
 
 /// @nodoc
@@ -1446,14 +1970,9 @@ class __$$TankSavedCopyWithImpl<$Res> extends _$TankSetupEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? tank = freezed,
     Object? tankEntryMode = freezed,
   }) {
     return _then(_$TankSaved(
-      tank: tank == freezed
-          ? _value.tank
-          : tank // ignore: cast_nullable_to_non_nullable
-              as Tank,
       tankEntryMode: tankEntryMode == freezed
           ? _value.tankEntryMode
           : tankEntryMode // ignore: cast_nullable_to_non_nullable
@@ -1465,16 +1984,14 @@ class __$$TankSavedCopyWithImpl<$Res> extends _$TankSetupEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TankSaved implements TankSaved {
-  const _$TankSaved({required this.tank, required this.tankEntryMode});
+  const _$TankSaved({required this.tankEntryMode});
 
-  @override
-  final Tank tank;
   @override
   final TankEntryMode tankEntryMode;
 
   @override
   String toString() {
-    return 'TankSetupEvent.tankSaved(tank: $tank, tankEntryMode: $tankEntryMode)';
+    return 'TankSetupEvent.tankSaved(tankEntryMode: $tankEntryMode)';
   }
 
   @override
@@ -1482,16 +1999,13 @@ class _$TankSaved implements TankSaved {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TankSaved &&
-            const DeepCollectionEquality().equals(other.tank, tank) &&
             const DeepCollectionEquality()
                 .equals(other.tankEntryMode, tankEntryMode));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(tank),
-      const DeepCollectionEquality().hash(tankEntryMode));
+      runtimeType, const DeepCollectionEquality().hash(tankEntryMode));
 
   @JsonKey(ignore: true)
   @override
@@ -1501,52 +2015,63 @@ class _$TankSaved implements TankSaved {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
-    return tankSaved(tank, tankEntryMode);
+    return tankSaved(tankEntryMode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
-    return tankSaved?.call(tank, tankEntryMode);
+    return tankSaved?.call(tankEntryMode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankSaved != null) {
-      return tankSaved(tank, tankEntryMode);
+      return tankSaved(tankEntryMode);
     }
     return orElse();
   }
@@ -1554,9 +2079,11 @@ class _$TankSaved implements TankSaved {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -1572,9 +2099,11 @@ class _$TankSaved implements TankSaved {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1590,9 +2119,11 @@ class _$TankSaved implements TankSaved {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1611,11 +2142,9 @@ class _$TankSaved implements TankSaved {
 }
 
 abstract class TankSaved implements TankSetupEvent {
-  const factory TankSaved(
-      {required final Tank tank,
-      required final TankEntryMode tankEntryMode}) = _$TankSaved;
+  const factory TankSaved({required final TankEntryMode tankEntryMode}) =
+      _$TankSaved;
 
-  Tank get tank;
   TankEntryMode get tankEntryMode;
   @JsonKey(ignore: true)
   _$$TankSavedCopyWith<_$TankSaved> get copyWith =>
@@ -1627,7 +2156,7 @@ abstract class _$$TankDeletedCopyWith<$Res> {
   factory _$$TankDeletedCopyWith(
           _$TankDeleted value, $Res Function(_$TankDeleted) then) =
       __$$TankDeletedCopyWithImpl<$Res>;
-  $Res call({Tank tank});
+  $Res call({Tank tank, int position});
 }
 
 /// @nodoc
@@ -1644,12 +2173,17 @@ class __$$TankDeletedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tank = freezed,
+    Object? position = freezed,
   }) {
     return _then(_$TankDeleted(
       tank: tank == freezed
           ? _value.tank
           : tank // ignore: cast_nullable_to_non_nullable
               as Tank,
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -1657,14 +2191,16 @@ class __$$TankDeletedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TankDeleted implements TankDeleted {
-  const _$TankDeleted({required this.tank});
+  const _$TankDeleted({required this.tank, required this.position});
 
   @override
   final Tank tank;
+  @override
+  final int position;
 
   @override
   String toString() {
-    return 'TankSetupEvent.tankDeleted(tank: $tank)';
+    return 'TankSetupEvent.tankDeleted(tank: $tank, position: $position)';
   }
 
   @override
@@ -1672,12 +2208,15 @@ class _$TankDeleted implements TankDeleted {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TankDeleted &&
-            const DeepCollectionEquality().equals(other.tank, tank));
+            const DeepCollectionEquality().equals(other.tank, tank) &&
+            const DeepCollectionEquality().equals(other.position, position));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(tank));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(tank),
+      const DeepCollectionEquality().hash(position));
 
   @JsonKey(ignore: true)
   @override
@@ -1687,52 +2226,63 @@ class _$TankDeleted implements TankDeleted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TankEntryMode tankEntryMode, Tank tank)
+    required TResult Function() tanksLoaded,
+    required TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)
         tankConfigured,
     required TResult Function(String input) tankNameChanged,
     required TResult Function(String input) tankTypeChanged,
+    required TResult Function(String urlStr) tankPicUrlChanged,
     required TResult Function(String input) tankPriceChanged,
     required TResult Function(String input) tankDateOfPurchaseChanged,
     required TResult Function(String input) tankDateOfDismantleChanged,
     required TResult Function(String input) tankStatusChanged,
-    required TResult Function(Tank tank, TankEntryMode tankEntryMode) tankSaved,
-    required TResult Function(Tank tank) tankDeleted,
+    required TResult Function(TankEntryMode tankEntryMode) tankSaved,
+    required TResult Function(Tank tank, int position) tankDeleted,
   }) {
-    return tankDeleted(tank);
+    return tankDeleted(tank, position);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
   }) {
-    return tankDeleted?.call(tank);
+    return tankDeleted?.call(tank, position);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TankEntryMode tankEntryMode, Tank tank)? tankConfigured,
+    TResult Function()? tanksLoaded,
+    TResult Function(
+            TankEntryMode tankEntryMode, Tank currentTank, int currentPosition)?
+        tankConfigured,
     TResult Function(String input)? tankNameChanged,
     TResult Function(String input)? tankTypeChanged,
+    TResult Function(String urlStr)? tankPicUrlChanged,
     TResult Function(String input)? tankPriceChanged,
     TResult Function(String input)? tankDateOfPurchaseChanged,
     TResult Function(String input)? tankDateOfDismantleChanged,
     TResult Function(String input)? tankStatusChanged,
-    TResult Function(Tank tank, TankEntryMode tankEntryMode)? tankSaved,
-    TResult Function(Tank tank)? tankDeleted,
+    TResult Function(TankEntryMode tankEntryMode)? tankSaved,
+    TResult Function(Tank tank, int position)? tankDeleted,
     required TResult orElse(),
   }) {
     if (tankDeleted != null) {
-      return tankDeleted(tank);
+      return tankDeleted(tank, position);
     }
     return orElse();
   }
@@ -1740,9 +2290,11 @@ class _$TankDeleted implements TankDeleted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(TanksLoaded value) tanksLoaded,
     required TResult Function(TankConfigured value) tankConfigured,
     required TResult Function(TankNameChanged value) tankNameChanged,
     required TResult Function(TankTypeChanged value) tankTypeChanged,
+    required TResult Function(TankPicUrlChanged value) tankPicUrlChanged,
     required TResult Function(TankPriceChanged value) tankPriceChanged,
     required TResult Function(TankDateOfPurchaseChanged value)
         tankDateOfPurchaseChanged,
@@ -1758,9 +2310,11 @@ class _$TankDeleted implements TankDeleted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1776,9 +2330,11 @@ class _$TankDeleted implements TankDeleted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(TanksLoaded value)? tanksLoaded,
     TResult Function(TankConfigured value)? tankConfigured,
     TResult Function(TankNameChanged value)? tankNameChanged,
     TResult Function(TankTypeChanged value)? tankTypeChanged,
+    TResult Function(TankPicUrlChanged value)? tankPicUrlChanged,
     TResult Function(TankPriceChanged value)? tankPriceChanged,
     TResult Function(TankDateOfPurchaseChanged value)?
         tankDateOfPurchaseChanged,
@@ -1797,9 +2353,11 @@ class _$TankDeleted implements TankDeleted {
 }
 
 abstract class TankDeleted implements TankSetupEvent {
-  const factory TankDeleted({required final Tank tank}) = _$TankDeleted;
+  const factory TankDeleted(
+      {required final Tank tank, required final int position}) = _$TankDeleted;
 
   Tank get tank;
+  int get position;
   @JsonKey(ignore: true)
   _$$TankDeletedCopyWith<_$TankDeleted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1807,27 +2365,28 @@ abstract class TankDeleted implements TankSetupEvent {
 
 /// @nodoc
 mixin _$TankSetupState {
-  Tank get currentTank => throw _privateConstructorUsedError;
-  TankEntryMode? get tankEntryMode => throw _privateConstructorUsedError;
   KtList<Tank> get tanks => throw _privateConstructorUsedError;
+  Tank get currentTank => throw _privateConstructorUsedError;
+  TankEntryMode get tankEntryMode => throw _privateConstructorUsedError;
+  int get currentPosition => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Tank currentTank, TankEntryMode? tankEntryMode, KtList<Tank> tanks)
+    required TResult Function(KtList<Tank> tanks, Tank currentTank,
+            TankEntryMode tankEntryMode, int currentPosition)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            Tank currentTank, TankEntryMode? tankEntryMode, KtList<Tank> tanks)?
+    TResult Function(KtList<Tank> tanks, Tank currentTank,
+            TankEntryMode tankEntryMode, int currentPosition)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Tank currentTank, TankEntryMode? tankEntryMode, KtList<Tank> tanks)?
+    TResult Function(KtList<Tank> tanks, Tank currentTank,
+            TankEntryMode tankEntryMode, int currentPosition)?
         initial,
     required TResult orElse(),
   }) =>
@@ -1860,7 +2419,10 @@ abstract class $TankSetupStateCopyWith<$Res> {
           TankSetupState value, $Res Function(TankSetupState) then) =
       _$TankSetupStateCopyWithImpl<$Res>;
   $Res call(
-      {Tank currentTank, TankEntryMode? tankEntryMode, KtList<Tank> tanks});
+      {KtList<Tank> tanks,
+      Tank currentTank,
+      TankEntryMode tankEntryMode,
+      int currentPosition});
 }
 
 /// @nodoc
@@ -1874,11 +2436,16 @@ class _$TankSetupStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? tanks = freezed,
     Object? currentTank = freezed,
     Object? tankEntryMode = freezed,
-    Object? tanks = freezed,
+    Object? currentPosition = freezed,
   }) {
     return _then(_value.copyWith(
+      tanks: tanks == freezed
+          ? _value.tanks
+          : tanks // ignore: cast_nullable_to_non_nullable
+              as KtList<Tank>,
       currentTank: currentTank == freezed
           ? _value.currentTank
           : currentTank // ignore: cast_nullable_to_non_nullable
@@ -1886,11 +2453,11 @@ class _$TankSetupStateCopyWithImpl<$Res>
       tankEntryMode: tankEntryMode == freezed
           ? _value.tankEntryMode
           : tankEntryMode // ignore: cast_nullable_to_non_nullable
-              as TankEntryMode?,
-      tanks: tanks == freezed
-          ? _value.tanks
-          : tanks // ignore: cast_nullable_to_non_nullable
-              as KtList<Tank>,
+              as TankEntryMode,
+      currentPosition: currentPosition == freezed
+          ? _value.currentPosition
+          : currentPosition // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -1903,7 +2470,10 @@ abstract class _$$_InitialCopyWith<$Res>
       __$$_InitialCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Tank currentTank, TankEntryMode? tankEntryMode, KtList<Tank> tanks});
+      {KtList<Tank> tanks,
+      Tank currentTank,
+      TankEntryMode tankEntryMode,
+      int currentPosition});
 }
 
 /// @nodoc
@@ -1917,11 +2487,16 @@ class __$$_InitialCopyWithImpl<$Res> extends _$TankSetupStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? tanks = freezed,
     Object? currentTank = freezed,
     Object? tankEntryMode = freezed,
-    Object? tanks = freezed,
+    Object? currentPosition = freezed,
   }) {
     return _then(_$_Initial(
+      tanks: tanks == freezed
+          ? _value.tanks
+          : tanks // ignore: cast_nullable_to_non_nullable
+              as KtList<Tank>,
       currentTank: currentTank == freezed
           ? _value.currentTank
           : currentTank // ignore: cast_nullable_to_non_nullable
@@ -1929,11 +2504,11 @@ class __$$_InitialCopyWithImpl<$Res> extends _$TankSetupStateCopyWithImpl<$Res>
       tankEntryMode: tankEntryMode == freezed
           ? _value.tankEntryMode
           : tankEntryMode // ignore: cast_nullable_to_non_nullable
-              as TankEntryMode?,
-      tanks: tanks == freezed
-          ? _value.tanks
-          : tanks // ignore: cast_nullable_to_non_nullable
-              as KtList<Tank>,
+              as TankEntryMode,
+      currentPosition: currentPosition == freezed
+          ? _value.currentPosition
+          : currentPosition // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -1942,18 +2517,23 @@ class __$$_InitialCopyWithImpl<$Res> extends _$TankSetupStateCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {required this.currentTank, this.tankEntryMode, required this.tanks});
+      {required this.tanks,
+      required this.currentTank,
+      required this.tankEntryMode,
+      required this.currentPosition});
 
+  @override
+  final KtList<Tank> tanks;
   @override
   final Tank currentTank;
   @override
-  final TankEntryMode? tankEntryMode;
+  final TankEntryMode tankEntryMode;
   @override
-  final KtList<Tank> tanks;
+  final int currentPosition;
 
   @override
   String toString() {
-    return 'TankSetupState.initial(currentTank: $currentTank, tankEntryMode: $tankEntryMode, tanks: $tanks)';
+    return 'TankSetupState.initial(tanks: $tanks, currentTank: $currentTank, tankEntryMode: $tankEntryMode, currentPosition: $currentPosition)';
   }
 
   @override
@@ -1961,19 +2541,22 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
+            const DeepCollectionEquality().equals(other.tanks, tanks) &&
             const DeepCollectionEquality()
                 .equals(other.currentTank, currentTank) &&
             const DeepCollectionEquality()
                 .equals(other.tankEntryMode, tankEntryMode) &&
-            const DeepCollectionEquality().equals(other.tanks, tanks));
+            const DeepCollectionEquality()
+                .equals(other.currentPosition, currentPosition));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(tanks),
       const DeepCollectionEquality().hash(currentTank),
       const DeepCollectionEquality().hash(tankEntryMode),
-      const DeepCollectionEquality().hash(tanks));
+      const DeepCollectionEquality().hash(currentPosition));
 
   @JsonKey(ignore: true)
   @override
@@ -1983,33 +2566,33 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Tank currentTank, TankEntryMode? tankEntryMode, KtList<Tank> tanks)
+    required TResult Function(KtList<Tank> tanks, Tank currentTank,
+            TankEntryMode tankEntryMode, int currentPosition)
         initial,
   }) {
-    return initial(currentTank, tankEntryMode, tanks);
+    return initial(tanks, currentTank, tankEntryMode, currentPosition);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            Tank currentTank, TankEntryMode? tankEntryMode, KtList<Tank> tanks)?
+    TResult Function(KtList<Tank> tanks, Tank currentTank,
+            TankEntryMode tankEntryMode, int currentPosition)?
         initial,
   }) {
-    return initial?.call(currentTank, tankEntryMode, tanks);
+    return initial?.call(tanks, currentTank, tankEntryMode, currentPosition);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Tank currentTank, TankEntryMode? tankEntryMode, KtList<Tank> tanks)?
+    TResult Function(KtList<Tank> tanks, Tank currentTank,
+            TankEntryMode tankEntryMode, int currentPosition)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(currentTank, tankEntryMode, tanks);
+      return initial(tanks, currentTank, tankEntryMode, currentPosition);
     }
     return orElse();
   }
@@ -2045,16 +2628,19 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements TankSetupState {
   const factory _Initial(
-      {required final Tank currentTank,
-      final TankEntryMode? tankEntryMode,
-      required final KtList<Tank> tanks}) = _$_Initial;
+      {required final KtList<Tank> tanks,
+      required final Tank currentTank,
+      required final TankEntryMode tankEntryMode,
+      required final int currentPosition}) = _$_Initial;
 
+  @override
+  KtList<Tank> get tanks;
   @override
   Tank get currentTank;
   @override
-  TankEntryMode? get tankEntryMode;
+  TankEntryMode get tankEntryMode;
   @override
-  KtList<Tank> get tanks;
+  int get currentPosition;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
