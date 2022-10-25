@@ -5,13 +5,19 @@ import 'package:aqua_hobby/presentation/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/tank-setup/tank_setup_bloc.dart';
+import '../edit-tank-screen/main_view.dart';
 
-class TankView extends StatelessWidget {
+class TankView extends StatefulWidget {
   const TankView({Key? key, required this.tank, required this.position})
       : super(key: key);
   final Tank tank;
   final int position;
 
+  @override
+  State<TankView> createState() => _TankViewState();
+}
+
+class _TankViewState extends State<TankView> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,8 +36,8 @@ class TankView extends StatelessWidget {
                   child: ConstrainedBox(
                     constraints:
                         const BoxConstraints(minWidth: 150, minHeight: 150),
-                    child: tank.tankPicPath.isNotEmpty
-                        ? Image.file(File(tank.tankPicPath))
+                    child: widget.tank.tankPicPath.isNotEmpty
+                        ? Image.file(File(widget.tank.tankPicPath))
                         : Image.asset('assets/images/bricks.jpg'),
                   ),
                 ),
@@ -56,14 +62,14 @@ class TankView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             TankInfo(
-                              info: tank.name,
+                              info: widget.tank.name,
                               style: Theme.of(context).textTheme.headline5!,
                             ),
                             TankInfo(
-                                info: tank.type,
+                                info: widget.tank.type,
                                 style: Theme.of(context).textTheme.bodyLarge!),
                             TankInfo(
-                                info: tank.cO2,
+                                info: widget.tank.cO2,
                                 style: Theme.of(context).textTheme.bodyText1!),
                           ],
                         ),
@@ -76,12 +82,18 @@ class TankView extends StatelessWidget {
                               action: "Edit",
                               icon: Icons.edit,
                             ),
-                            onTap: () {
+                            onTap: () async {
                               context.read<TankSetupBloc>().add(
                                   TankSetupEvent.tankConfigured(
-                                      currentTank: tank,
+                                      currentTank: widget.tank,
                                       tankEntryMode: TankEntryMode.edit,
-                                      currentPosition: position));
+                                      currentPosition: widget.position));
+
+                              Future(() => Navigator.pushNamed(
+                                  context, EditTankScreen.route,
+                                  arguments: EditTankScreenArguments(
+                                      tank: widget.tank,
+                                      tankEntryMode: TankEntryMode.edit)));
                             },
                           ),
                           PopupMenuItem(
@@ -90,8 +102,9 @@ class TankView extends StatelessWidget {
                               icon: Icons.delete,
                             ),
                             onTap: () {
-                              context.read<TankSetupBloc>().add(
-                                  TankDeleted(tank: tank, position: position));
+                              context.read<TankSetupBloc>().add(TankDeleted(
+                                  tank: widget.tank,
+                                  position: widget.position));
                             },
                           )
                         ],

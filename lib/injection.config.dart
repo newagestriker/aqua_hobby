@@ -14,11 +14,12 @@ import 'package:google_sign_in/google_sign_in.dart' as _i4;
 import 'package:image_picker/image_picker.dart' as _i10;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/auth/auth_bloc.dart' as _i16;
-import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i14;
-import 'application/tank-setup/tank_setup_bloc.dart' as _i15;
+import 'application/auth/auth_bloc.dart' as _i17;
+import 'application/auth/image_selection/image_selection_bloc.dart' as _i14;
+import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i15;
+import 'application/tank-setup/tank_setup_bloc.dart' as _i16;
 import 'domain/auth/i_auth_facade.dart' as _i5;
-import 'domain/core/firebase_injectable_module.dart' as _i17;
+import 'domain/core/firebase_injectable_module.dart' as _i18;
 import 'domain/image_chooser/i_image_chooser_facade.dart' as _i7;
 import 'domain/tank/contracts/i_tank_repository.dart' as _i12;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i6;
@@ -51,12 +52,14 @@ _i1.GetIt $initGetIt(
           _i7.IImageChooserFacade<_i8.Future<_i9.File?>, _i10.ImageSource>>(
       () => _i11.ImageChooserFacade());
   gh.lazySingleton<_i12.ITankRepository>(() => _i13.TankRepository());
-  gh.factory<_i14.SignInFormBloc>(
-      () => _i14.SignInFormBloc(get<_i5.IAuthFacade>()));
-  gh.factory<_i15.TankSetupBloc>(
-      () => _i15.TankSetupBloc(get<_i12.ITankRepository>()));
-  gh.factory<_i16.AuthBloc>(() => _i16.AuthBloc(get<_i5.IAuthFacade>()));
+  gh.factory<_i14.ImageSelectionBloc>(() => _i14.ImageSelectionBloc(
+      get<_i7.IImageChooserFacade<_i8.Future<_i9.File?>, _i10.ImageSource>>()));
+  gh.factory<_i15.SignInFormBloc>(
+      () => _i15.SignInFormBloc(get<_i5.IAuthFacade>()));
+  gh.factory<_i16.TankSetupBloc>(
+      () => _i16.TankSetupBloc(get<_i12.ITankRepository>()));
+  gh.factory<_i17.AuthBloc>(() => _i17.AuthBloc(get<_i5.IAuthFacade>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i17.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i18.FirebaseInjectableModule {}

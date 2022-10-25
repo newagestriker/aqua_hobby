@@ -49,7 +49,7 @@ class DashboardScreen extends StatelessWidget {
                   currentTank: Tank(),
                   tankEntryMode: TankEntryMode.add,
                   currentPosition: -1));
-              Navigator.pushReplacementNamed(context, EditTankScreen.route,
+              Navigator.pushNamed(context, EditTankScreen.route,
                   arguments: EditTankScreenArguments(
                       tank: state.currentTank,
                       tankEntryMode: state.tankEntryMode));
